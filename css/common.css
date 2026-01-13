@@ -1,0 +1,13 @@
+/* common.css */
+
+/* =====================
+   공통 변수
+===================== */
+:root {
+  --color-primary: #21BF48;    /* 메인 컬러 */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-light: #f5f5f5;
+  --color-gray-medium: #767676;
+  --color-gray-dark: #c4c4c4;
+}
