@@ -3,9 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>product</title>
+    <title>상품 상세</title>
+
+    <!-- 공통 CSS -->
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/font.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+
+    <!-- 상품 상세 전용 CSS -->
+    <link rel="stylesheet" href="../css/product.css" />
   </head>
+
   <body>
-    
+    <h1>상품 상세 페이지</h1>
+
+    <section id="product-detail">
+      <p id="status">상품 정보를 불러오는 중...</p>
+
+      <img
+        id="product-image"
+        alt=""
+        style="max-width: 320px; display: none;"
+      />
+
+      <h2 id="product-name">-</h2>
+      <p id="product-price">-</p>
+      <p id="product-info">-</p>
+
+      <!-- 수량 선택 -->
+      <div
+        id="quantity-box"
+        style="margin-top: 16px; display: flex; gap: 8px; align-items: center;"
+      >
+        <button id="btn-minus" type="button">-</button>
+        <span id="quantity">1</span>
+        <button id="btn-plus" type="button">+</button>
+      </div>
+
+      <!-- 총 가격 -->
+      <p style="margin-top: 12px;">
+        총 가격: <strong id="total-price">-</strong>
+      </p>
+    </section>
+
+    <!-- JS -->
+    <script src="../js/product.js"></script>
   </body>
 </html>
