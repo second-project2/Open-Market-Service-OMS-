@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* 패딩을 넣어도 박스 크기가 변하지 않게 함 */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul, li {
+    list-style: none;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit; /* 버튼도 기본 폰트를 따라가게 함 */
+}
+
+input {
+    font-family: inherit;
+}
