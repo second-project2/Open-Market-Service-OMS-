@@ -12,8 +12,32 @@
   
   </head>
   <body>
-    <!-- 임시작성, 나중에 공통코드 넣을것 -->
-    <header class="gnb">
+    <header id="main-header">
+      <div class="header-inner">
+        <div class="header-left">
+          <h1 class="logo">
+            <a href="index.html">
+            <img src="../assets/icons/Logo-hodu.png" alt="호두샵 로고">
+            </a>
+          </h1>      
+          <div class="search-container">
+            <input type="text" placeholder="상품을 검색해보세요!">
+            <button class="search-btn">
+              <img src="../assets/icons/search.png" alt="search">
+            </button>
+          </div>
+        </div>
+        <div class="user-menu">
+          <div class="menu-item">
+            <img src="../assets/icons/icon-shopping-cart.svg" alt="cart">
+            <span>장바구니</span>
+          </div>
+          <div class="menu-item">
+            <img src="../assets/icons/icon-user.svg" alt="mypage">
+            <span>로그인</span>
+          </div>
+        </div>
+      </div>
     </header>
 
       <section class="banner-section">
@@ -84,6 +108,7 @@
       </div>
   </footer>
 
+  <script src="../js/header.js"></script>  
   <script src="../js/index.js"></script>
 
     
