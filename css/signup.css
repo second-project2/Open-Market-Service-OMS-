@@ -1,68 +1,245 @@
-/* 1. 화면 전체 중앙 정렬 */
-body{
+/* 전체 레이아웃 잡아주기 */
+.signup-wrapper {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-}
-.page-wrapper {
-    display: flex;
-    justify-content: center;   /* 가로 가운데 */
-    align-items: center;       /* 세로 가운데 */
-    min-height: 100vh;         /* 화면 전체 높이 사용 */
-    background-color: var(--color-gray-light); /* 배경색 (선택사항) */
-    padding: 20px;
-}
-.logo{
-    display: flex;
     justify-content: center;
-    align-items: center;
-}
-/* 2. 메인 회원가입 박스 */
-.signup-main {
-    width: 550px;
-    background-color: var(--color-white);
-    border: 1px solid var(--color-gray-medium);
-    border-radius: 10px;
-    /* 탭이 박스 위로 살짝 튀어나오게 하거나 경계에 붙이기 위해 padding-top 조절 */
-    padding: 0; 
-    overflow: hidden; /* 탭의 둥근 모서리가 박스에 맞게 잘리도록 함 */
-    color: var(--color-gray-dark);
+    min-height: 100vh;
+    background-color: var(--color-gray-light);
+    padding: 50px 0; /* 상하 여백 */
 }
 
-/* 3. 탭 컨테이너 및 아이템 */
-.tab-container {
+.logo {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* 메인 컨테이너 (탭 + 폼) */
+.signup-container {
+    width: 550px;
+    background-color: transparent; /* 탭 배경이 보이라도 투명하게 */
+}
+
+/* --- 탭 메뉴 디자인 --- */
+.tab-menu {
     display: flex;
-    /* 탭 아래쪽 경계선을 박스 경계선과 맞춤 */
+    position: relative;
+    z-index: 2; /* 폼 박스보다 위에 오도록 */
+    top: 1px; /* 테두리 겹치기를 위해 살짝 내림 */
 }
 
 .tab-item {
-    flex: 1; /* 탭이 너비를 꽉 채우게 함 */
-    padding: 18px 0;
+    flex: 1;
+    display: block;
+    padding: 19px 0; /* 높이 조절 */
+    text-align: center;
     font-size: 18px;
-    font-weight: bold;
-    border: none;
-    background-color: var(--color-gray-light); /* 비활성 탭 배경 */
-    cursor: pointer;
-    border-bottom: 1px solid var(--color-gray-medium);
+    font-weight: 700;
+    color: var(--text-secondary);
+    background-color: var(--color-gray-light);
+    border: 1px solid var(--color-gray-medium);
+    border-bottom: none; /* 아래 테두리는 폼 박스와 연결 */
+    border-radius: 10px 10px 0 0; /* 위쪽만 둥글게 */
+    text-decoration: none;
 }
 
-/* 활성화된 구매회원가입 탭 */
+/* 오른쪽 탭의 왼쪽 테두리 겹침 방지 */
+.tab-item + .tab-item {
+    border-left: none; 
+}
+
+/* 활성화된 탭 */
 .tab-item.active {
     background-color: var(--color-white);
-    border-bottom: none ; /* 아래쪽 선을 없애 박스와 연결된 느낌 부여 */
+    color: var(--text-primary);
+    /* 활성화된 탭 하단을 흰색으로 덮어서 연결된 느낌 줌 */
+    border-bottom: 1px solid var(--color-white); 
+    margin-bottom: -1px;
 }
 
-/* 4. 폼 안쪽 여백 */
+
+/* --- 폼 영역 디자인 --- */
 .signup-form {
-    padding: 30px; /* 폼 내용물만 안쪽 여백을 줌 */
+    position: relative;
+    z-index: 1;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-medium);
+    border-radius: 0 0 10px 10px; /* 아래쪽만 둥글게 */
+    padding: 40px 35px 35px 35px;
 }
 
-.btn-check{
-    background-color: var(--color-primary);
-    color:var(--color-white);
-    border:0px;
-    border-radius: 4px;
+/* 입력 그룹 공통 */
+.input-group {
+    margin-bottom: 30px;
 }
-.btn-check:hover{
-    filter: brightness(90%);
+
+.input-label {
+    display: block;
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+}
+
+/* 기본 인풋 스타일 */
+.signup-form input[type="text"],
+.signup-form input[type="password"],
+.signup-form input[type="tel"] {
+    width: 100%;
+    height: 54px;
+    padding: 0 15px;
+    border: 1px solid var(--color-gray-medium);
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box; /* padding이 너비에 포함되도록 */
+    outline: none; /* 기본 focus 아웃라인 제거 */
+}
+
+/* 인풋 포커스 시 초록색 테두리 */
+.signup-form input:focus {
+    border-color: var(--color-primary);
+}
+
+/* 아이디 + 중복확인 버튼 */
+.input-with-btn {
+    display: flex;
+    gap: 10px;
+}
+
+.input-with-btn input {
+    flex: 1; /* 남은 공간 차지 */
+}
+
+.btn-check {
+    width: 120px;
+    height: 54px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-check:hover {
+    filter: brightness(95%);
+}
+
+/* 비밀번호 + 아이콘 */
+.input-with-icon {
+    position: relative;
+}
+
+.check-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+}
+
+/* 휴대폰 번호 영역 */
+.phone-inputs {
+    display: flex;
+    gap: 12px;
+}
+
+/* 커스텀 셀렉트 박스 디자인 */
+.select-wrapper {
+    position: relative;
+    width: 150px;
+    height: 54px;
+}
+
+.select-wrapper select {
+    width: 100%;
+    height: 100%;
+    padding: 0 15px;
+    border: 1px solid var(--color-gray-medium);
+    border-radius: 5px;
+    font-size: 16px;
+    appearance: none; /* 기본 화살표 제거 (크롬, 사파리 등) */
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+    background-color: var(--color-white);
+    cursor: pointer;
+    outline: none;
+}
+
+/* 커스텀 화살표 아이콘 추가 (SVG 배경) */
+.select-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    /* 디자인에 있는 초록색 꺽쇠 아이콘 */
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 7.5L10 12.5L15 7.5' stroke='%2321BF48' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none; /* 클릭 시 select 박스가 클릭되도록 */
+}
+
+.select-wrapper select:focus {
+    border-color: var(--color-primary);
+}
+
+.phone-num-input {
+    flex: 1;
+    text-align: center;
+}
+
+/* 약관 동의 영역 */
+.policy-agreement {
+    display: flex;
+    align-items: center;
+    margin: 35px 0;
+    font-size: 16px;
+    color: var(--text-secondary);
+}
+
+/* 기본 체크박스 숨기고 커스텀 디자인 (선택사항 - 시안과 유사하게만 조정) */
+#agree-policy {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    accent-color: var(--color-primary); /* 체크 시 초록색 */
+    cursor: pointer;
+}
+
+.check-label {
+    cursor: pointer;
+}
+
+.link-policy {
+    color: var(--text-secondary);
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+/* 가입하기 제출 버튼 */
+.btn-signup-submit {
+    width: 100%;
+    height: 60px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    /* 기본 disabled 상태 색상 */
+    background-color: var(--btn-disabled-bg); 
+}
+
+/* JS로 disabled 속성이 제거되었을 때 활성화 색상 */
+.btn-signup-submit:not(:disabled) {
+    background-color: var(--color-primary);
+}
+
+.btn-signup-submit:not(:disabled):hover {
+    filter: brightness(95%);
 }
