@@ -1,14 +1,10 @@
-/**
- * 네비게이션 바 상태를 관리하는 함수
- */
 function updateNavigation() {
     const userMenu = document.querySelector('.user-menu');
+    if (!userMenu) return;
     
-    // 로그인 상태 확인 (실제로는 서버와 통신하거나 토큰을 확인합니다)
-    // 여기서는 테스트를 위해 localStorage를 사용합니다.
     const loginToken = localStorage.getItem('login-token');
-    const userRole = localStorage.getItem('user-role'); // 'buyer' 또는 'seller'
-
+    const userRole = localStorage.getItem('user-role'); 
+  
     if (loginToken) {
         // [로그인 후 상태]
         if (userRole === 'seller') {
@@ -51,5 +47,30 @@ function updateNavigation() {
     }
 }
 
-// 페이지 로드 시 실행
-document.addEventListener('DOMContentLoaded', updateNavigation);
+function handleSearch() {
+    const searchInput = document.querySelector('.search-container input');
+    const keyword = searchInput.value.trim();
+
+    if (keyword) {
+        // 검색어를 URL 파라미터로 전달하며 메인 페이지로 이동
+        location.href = `index.html?search=${keyword}`;
+    } else {
+        alert("검색어를 입력해주세요!");
+        searchInput.focus();
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateNavigation();
+    const searchInput = document.querySelector('.search-container input');
+    const searchBtn = document.querySelector('.search-btn');
+
+    if (searchBtn && searchInput) {
+        searchBtn.addEventListener('click', handleSearch);
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                handleSearch();
+            }
+        });
+    }
+});

@@ -286,7 +286,7 @@ header {
 } 
 
 @media screen and (max-width: 768px) {
-    .header-left .search-container {
+    .search-container {
         width: 250px;
     }
     
