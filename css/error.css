@@ -5,9 +5,55 @@ body{
     
 }
 
-.error-page{
-   display: flex;
+.error-content{
+    height:100vh;
+    width: 100%;
+    display: flex;
     justify-content: center;
     align-items: center;
+    gap: 50px;
     
+}
+.error-content h1{
+    font-family: 'SpokaHanSansNeo', sans-serif;
+    font-size: 36px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    
+}
+.error-content p{
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+}
+
+.btn-go-main, .btn-go-back {
+    width: 200px;
+    height: 60px;
+    border-radius: 5px;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    
+}
+
+
+.error-back {
+    display: flex;       
+    gap: 14px ;
+    margin-top: 40px;    
+}
+
+.btn-go-main {
+    background-color: var(--btn-primary-bg);
+    color: var(--btn-text-primary);
+}
+
+.btn-go-back {
+    background-color: var(--btn-alert-bg);
+    color: var(--btn-text-secondary);
+    border: 1px solid var(--color-gray-medium);
 }
