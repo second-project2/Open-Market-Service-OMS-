@@ -3,20 +3,76 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <title>HODU 마켓</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
+    <title>product</title>
+    <title>login</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/index.css">
+  
   </head>
   <body>
-     <header class="gnb">
-        <div class="inner">
-            <h1 class="logo"><a href="index.html">HODU</a></h1>
-            </div>
+    <!-- 임시작성, 나중에 공통코드 넣을것 -->
+    <header class="gnb">
     </header>
 
-    <main>
-        </main>
+      <section class="main-banner">
+        <h2 class="sr-only">메인배너 이미지</h2>
+        <!-- <img class="main-banner" src="../assets/images/blanket.png" alt="메인 배너 이미지"> -->
+        <div class="banner-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+      </section>
+
+     <main class="container">
+        <h2 class="sr-only">상품 목록</h2>
+        <ul class="product-list" id="productList">
+        </ul>
+    </main>
+
+    <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <nav class="footer-links">
+          <ul>
+            <li><a href="#">호두샵 소개</a></li>
+            <li>|</li>
+            <li><a href="#">이용약관</a></li>
+            <li>|</li>
+            <li><a href="#" class="bold">개인정보처리방침</a></li>
+            <li>|</li>
+            <li><a href="#">전자금융거래약관</a></li>
+            <li>|</li>
+            <li><a href="#">청소년보호정책</a></li>
+            <li>|</li>
+            <li><a href="#">제휴문의</a></li>
+          </ul>
+        </nav>
+        <div class="social-icons">
+            <a href="#"><img src="../assets/icons/icon-insta.svg" alt="인스타그램"></a>
+            <a href="#"><img src="../assets/icons/icon-fb.svg" alt="페이스북"></a>
+            <a href="#"><img src="../assets/icons/icon-yt.svg" alt="유튜브"></a>
+        </div>
+      </div>
+
+      <hr class="footer-divider">
+
+      <div class="footer-bottom">
+        <strong>(주)HODU SHOP</strong>
+          <address>
+            제주특별자치도 제주시 동광로 137 제주코딩베이스캠프<br>
+            사업자 번호 : 000-0000-0000 | 통신판매업<br>
+            대표 : 김호두
+          </address>
+        </div>
+      </div>
+  </footer>
+
+  <script src="../js/index.js"></script>
+
+    
   </body>
 </html>
-
