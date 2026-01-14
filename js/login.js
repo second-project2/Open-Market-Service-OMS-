@@ -54,9 +54,10 @@ loginBtn.addEventListener('click', async function(event) {
 
         // 이전 페이지로 이동
         if (document.referrer) {
-            window.location.href = document.referrer;
+            
+            indow.location.href = './index.html';
         } else {
-            window.location.href = './index.html';
+            window.location.href = document.referrer;
         }
 
     } catch (err) {
