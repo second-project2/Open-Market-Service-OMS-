@@ -1,11 +1,93 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>signup</title>
-  </head>
-  <body>
-    
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HODU | 회원가입</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/signup.css">
+</head>
+<body>
+  <div class="signup-wrapper">
+    <header class="signup-header">
+      <h1 class="logo">
+        <a href="./index.html"><img src="../assets/icons/Logo-hodu.png" alt="HODU"></a>
+      </h1>
+    </header>
+
+    <main class="signup-container">
+      <div class="tab-menu">
+        <button type="button" class="tab-item active">구매회원가입</button>
+        <button type="button" class="tab-item">판매회원가입</button>
+      </div>
+
+      <form class="signup-form">
+        
+        <div class="input-group">
+          <label for="user-id" class="input-label">아이디</label>
+          <div class="input-with-btn">
+            <input type="text" id="user-id" name="username" required placeholder="아이디를 입력해주세요.">
+            <button type="button" class="btn-check" id="btnCheckId">중복확인</button>
+          </div>
+          <p class="message" id="id-message"></p>
+        </div>
+
+        <div class="input-group">
+          <label for="user-pw" class="input-label">비밀번호</label>
+          <div class="input-with-icon">
+            <input type="password" id="user-pw" name="password" required placeholder="비밀번호를 입력해주세요.">
+            <span class="check-icon" id="pw-icon">
+                <img src="../assets/icons/icon-check.svg" alt="검증 완료">
+            </span>
+          </div>
+          <p class="message" id="pw-message"></p>
+        </div>
+
+        <div class="input-group">
+          <label for="user-pw-check" class="input-label">비밀번호 재확인</label>
+          <div class="input-with-icon">
+            <input type="password" id="user-pw-check" required placeholder="비밀번호를 다시 입력해주세요.">
+            <span class="check-icon" id="pw-check-icon">
+                <img src="../assets/icons/icon-check.svg" alt="검증 완료">
+            </span>
+          </div>
+          <p class="message" id="pw-check-message"></p>
+        </div>
+
+        <div class="input-group">
+          <label for="user-name" class="input-label">이름</label>
+          <input type="text" id="user-name" name="name" required placeholder="이름을 입력해주세요.">
+        </div>
+
+        <div class="input-group">
+          <label for="phone-first" class="input-label">휴대폰번호</label>
+          <div class="phone-inputs">
+            <div class="select-wrapper">
+                <select name="phone-first" id="phone-first">
+                    <option value="010">010</option>
+                    <option value="011">011</option>
+                    <option value="016">016</option>
+                    <option value="017">017</option>
+                </select>
+            </div>
+            <input type="tel" id="phone-middle" maxlength="4" required class="phone-num-input">
+            <input type="tel" id="phone-last" maxlength="4" required class="phone-num-input">
+          </div>
+        </div>
+
+        <div class="policy-agreement">
+          <input type="checkbox" id="agree-policy" required>
+          <label for="agree-policy" class="check-label">
+            호두샵의 이용약관 및 <a href="#" class="link-policy">개인정보처리방침</a>에 대한 내용을 확인하였고 동의합니다.
+          </label>
+        </div>
+
+        <button type="submit" class="btn-signup-submit" disabled>가입하기</button>
+      </form>
+    </main>
+  </div>
+  
+  <script src="../js/singup.js"></script>
+</body>
 </html>

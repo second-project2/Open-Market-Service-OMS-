@@ -1,0 +1,13 @@
+body{
+    font-family:'SpokaHanSansNeo',
+    sans-serif;
+    
+    
+}
+
+.error-page{
+   display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
