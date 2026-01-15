@@ -1,195 +1,162 @@
-// js/product.js (최종본 전체: 상품 로딩 + 수량 +/- + 비로그인 모달)
+// js/product.js (전체 교체)
 
 const API_BASE = "https://api.wenivops.co.kr/services/open-market";
 
-function getProductId() {
+function getProductIdFromQuery() {
   const params = new URLSearchParams(window.location.search);
-  return params.get("id"); // ✅ product.html?id=101
+  return params.get("id"); // ✅ 규칙: product.html?id=101 에서 id 사용
+}
+
+function formatNumber(n) {
+  return Number(n).toLocaleString("ko-KR");
 }
 
 function isLoggedIn() {
-  // ✅ login.js 기준
-  const token = localStorage.getItem("accessToken");
-  return typeof token === "string" && token.trim().length > 0;
+  // ✅ 로그인 판별: login.js에서 저장한 키 사용
+  return !!localStorage.getItem("accessToken");
 }
 
-function formatPrice(num) {
-  const n = Number(num);
-  if (!Number.isFinite(n)) return "0";
-  return n.toLocaleString("ko-KR");
+function openLoginModal() {
+  const modal = document.getElementById("loginModal");
+  if (!modal) return;
+  modal.classList.add("show");
+  modal.setAttribute("aria-hidden", "false");
 }
 
-/* ---------- state ---------- */
-const state = {
-  unitPrice: 0,
-  stock: 1,
-  quantity: 1,
-};
-
-/* ---------- DOM ---------- */
-const els = {
-  sellerName: document.getElementById("sellerName"),
-  productName: document.getElementById("productName"),
-  productPrice: document.getElementById("productPrice"),
-  productImage: document.getElementById("productImage"),
-  shippingInfo: document.getElementById("shippingInfo"),
-  totalQty: document.getElementById("totalQty"),
-  totalPrice: document.getElementById("totalPrice"),
-  qtyValue: document.getElementById("qtyValue"),
-  pageHint: document.getElementById("pageHint"),
-};
-
-const modalBackdrop = document.getElementById("loginModal");
-const btnClose = modalBackdrop?.querySelector(".modal-close");
-const btnCancel = modalBackdrop?.querySelector(".modal-btn.cancel");
-const btnConfirm = modalBackdrop?.querySelector(".modal-btn.confirm");
-
-const btnMinus = document.querySelector('[data-qty="minus"]');
-const btnPlus = document.querySelector('[data-qty="plus"]');
-
-/* ---------- modal ---------- */
-function openModal() {
-  if (!modalBackdrop) return;
-  modalBackdrop.classList.add("is-open");
-  modalBackdrop.setAttribute("aria-hidden", "false");
+function closeLoginModal() {
+  const modal = document.getElementById("loginModal");
+  if (!modal) return;
+  modal.classList.remove("show");
+  modal.setAttribute("aria-hidden", "true");
 }
 
-function closeModal() {
-  if (!modalBackdrop) return;
-  modalBackdrop.classList.remove("is-open");
-  modalBackdrop.setAttribute("aria-hidden", "true");
+async function fetchProduct(productId) {
+  const res = await fetch(`${API_BASE}/products/${productId}/`);
+  const data = await res.json();
+  if (!res.ok) throw new Error(data?.detail || "상품 조회 실패");
+  return data;
 }
 
-function goLogin() {
-  window.location.href = "./login.html";
-}
+document.addEventListener("DOMContentLoaded", async () => {
+  // ===== 요소 잡기 =====
+  const productImage = document.getElementById("productImage");
+  const sellerName = document.getElementById("sellerName");
+  const productName = document.getElementById("productName");
+  const productPrice = document.getElementById("productPrice");
+  const shippingInfo = document.getElementById("shippingInfo");
 
-/* ---------- UI 업데이트 ---------- */
-function updateQtyUI() {
-  if (els.qtyValue) els.qtyValue.textContent = String(state.quantity);
-  if (els.totalQty) els.totalQty.textContent = String(state.quantity);
+  const qtyValue = document.getElementById("qtyValue");
+  const totalQty = document.getElementById("totalQty");
+  const totalPrice = document.getElementById("totalPrice");
 
-  // 총 금액(상품가격 * 수량)
-  const total = state.unitPrice * state.quantity;
-  if (els.totalPrice) els.totalPrice.textContent = formatPrice(total);
+  const plusBtn = document.querySelector('[data-qty="plus"]');
+  const minusBtn = document.querySelector('[data-qty="minus"]');
 
-  // 버튼 활성/비활성
-  if (btnMinus) btnMinus.disabled = state.quantity <= 1;
-  if (btnPlus) btnPlus.disabled = state.quantity >= state.stock;
-}
+  const loginRequiredBtns = document.querySelectorAll("[data-requires-login='true']");
+  const hint = document.getElementById("pageHint");
 
-/* ---------- 상품 로드 ---------- */
-async function loadProduct() {
-  const productId = getProductId();
+  // 모달 버튼
+  const modal = document.getElementById("loginModal");
+  const modalClose = modal?.querySelector(".modal-close");
+  const modalCancel = modal?.querySelector(".modal-btn.cancel");
+  const modalConfirm = modal?.querySelector(".modal-btn.confirm");
 
-  if (!productId) {
-    if (els.pageHint) els.pageHint.textContent = "상품 id가 없습니다. 목록에서 다시 진입해주세요.";
+  // ===== 안전장치 =====
+  if (!plusBtn || !minusBtn || !qtyValue) {
+    console.error("❌ 수량 버튼 요소를 찾지 못했습니다. (data-qty/qtyValue 확인)");
     return;
   }
+
+  // ===== 상품 불러오기 =====
+  const productId = getProductIdFromQuery();
+  if (!productId) {
+    if (hint) hint.textContent = "상품 id가 없습니다. 목록에서 다시 진입해주세요.";
+    return;
+  }
+
+  let unitPrice = 0;
+  let shippingFee = 0;
+  let stock = 999999;
 
   try {
-    const res = await fetch(`${API_BASE}/products/${productId}/`);
-    const data = await res.json();
+    const product = await fetchProduct(productId);
 
-    if (!res.ok) {
-      window.location.href = "./error.html";
-      return;
+    sellerName.textContent = product?.seller?.store_name || product?.seller?.name || "판매자";
+    productName.textContent = product?.name || "상품명";
+    unitPrice = Number(product?.price || 0);
+    shippingFee = Number(product?.shipping_fee || 0);
+    stock = Number(product?.stock ?? 999999);
+
+    productPrice.textContent = formatNumber(unitPrice);
+
+    // ✅ 택배배송/배송비 표시 (API 응답값 shipping_fee 기반)
+    shippingInfo.textContent = `택배배송 / ${formatNumber(shippingFee)}원`;
+
+    // 이미지
+    if (product?.image) {
+      productImage.src = product.image;
+      productImage.alt = product.name ? `${product.name} 이미지` : "상품 이미지";
+    } else {
+      productImage.removeAttribute("src");
+      productImage.alt = "상품 이미지 없음";
     }
 
-    const seller =
-      data?.seller?.store_name ||
-      data?.seller?.name ||
-      data?.seller?.username ||
-      "판매자";
+    // 초기 총액 계산
+    const initQty = Number(qtyValue.textContent) || 1;
+    totalQty.textContent = initQty;
+    totalPrice.textContent = formatNumber(unitPrice * initQty);
 
-    const name = data?.name || "상품명";
-    const price = Number(data?.price ?? 0);
-    const stock = Number(data?.stock ?? 1);
-
-    state.unitPrice = Number.isFinite(price) ? price : 0;
-    state.stock = Number.isFinite(stock) && stock > 0 ? stock : 1;
-    state.quantity = 1;
-
-    // 배송 텍스트
-    const shippingMethod = data?.shipping_method === "DELIVERY" ? "직접배송" : "택배배송";
-    const shippingFee = Number(data?.shipping_fee ?? 0);
-    const shippingText = shippingFee === 0 ? "무료배송" : `${formatPrice(shippingFee)}원`;
-
-    if (els.sellerName) els.sellerName.textContent = seller;
-    if (els.productName) els.productName.textContent = name;
-    if (els.productPrice) els.productPrice.textContent = formatPrice(state.unitPrice);
-    if (els.shippingInfo) els.shippingInfo.textContent = `${shippingMethod} / ${shippingText}`;
-
-    // ✅ 이미지: 숨김 상태 복구 + 실패 시에만 처리
-    if (els.productImage) {
-      const imgUrl = data?.image || "";
-
-      els.productImage.style.display = "";
-      els.productImage.parentElement?.classList.remove("no-image");
-
-      els.productImage.src = imgUrl;
-      els.productImage.alt = name;
-
-      els.productImage.onerror = () => {
-        els.productImage.style.display = "none";
-        els.productImage.parentElement?.classList.add("no-image");
-      };
-    }
-
-    if (els.pageHint) {
-      els.pageHint.textContent =
-        state.stock <= 1 ? "재고가 적습니다." : `재고 ${state.stock}개`;
-    }
-
-    updateQtyUI();
+    if (hint) hint.textContent = `재고 ${formatNumber(stock)}개`;
   } catch (e) {
-    window.location.href = "./error.html";
-  }
-}
-
-/* ---------- 이벤트 ---------- */
-document.addEventListener("click", (e) => {
-  const target = e.target;
-  if (!(target instanceof Element)) return;
-
-  // 모달 닫기
-  if (target === btnClose || target === btnCancel) {
-    closeModal();
+    console.error(e);
+    if (hint) hint.textContent = "상품 정보를 불러오지 못했습니다.";
     return;
   }
 
-  // 모달 예
-  if (target === btnConfirm) {
-    goLogin();
-    return;
+  // ===== 수량 변경 + 총액 업데이트 =====
+  function updateTotals(nextQty) {
+    qtyValue.textContent = String(nextQty);
+    totalQty.textContent = String(nextQty);
+    totalPrice.textContent = formatNumber(unitPrice * nextQty);
   }
 
-  // 모달 바깥 클릭
-  if (target === modalBackdrop) {
-    closeModal();
-    return;
-  }
+  plusBtn.addEventListener("click", () => {
+    const current = Number(qtyValue.textContent) || 1;
+    if (current >= stock) return; // 재고 초과 방지
+    updateTotals(current + 1);
+  });
 
-  // 수량 버튼
-  const qtyBtn = target.closest("[data-qty]");
-  if (qtyBtn) {
-    const type = qtyBtn.getAttribute("data-qty");
-    if (type === "minus" && state.quantity > 1) state.quantity -= 1;
-    if (type === "plus" && state.quantity < state.stock) state.quantity += 1;
-    updateQtyUI();
-    return;
-  }
+  minusBtn.addEventListener("click", () => {
+    const current = Number(qtyValue.textContent) || 1;
+    if (current <= 1) return; // 1 미만 방지
+    updateTotals(current - 1);
+  });
 
-  // 로그인 필요 버튼(장바구니/바로구매)
-  const requires = target.closest("[data-requires-login='true']");
-  if (!requires) return;
+  // ===== 비로그인 모달 처리 (장바구니/바로구매) =====
+  loginRequiredBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (!isLoggedIn()) {
+        openLoginModal();
+        return;
+      }
 
-  if (!isLoggedIn()) {
-    openModal();
-  } else {
-    // ✅ 로그인 상태: 지금 단계에서는 실제 동작 없음(UI/연동 준비)
-  }
+      // ✅ 로그인 상태면(과제 범위상 실제 주문/장바구니 연동은 생략)
+      alert("로그인 상태입니다. (과제 범위: 실제 기능 연동은 다음 단계)");
+    });
+  });
+
+  // ===== 모달 닫기/이동 =====
+  modalClose?.addEventListener("click", closeLoginModal);
+  modalCancel?.addEventListener("click", closeLoginModal);
+
+  // "예" → login.html 이동
+  modalConfirm?.addEventListener("click", () => {
+    closeLoginModal();
+    window.location.href = "./login.html";
+  });
+
+  // 바깥 클릭 시 닫기
+  modal?.addEventListener("click", (e) => {
+    if (e.target === modal) closeLoginModal();
+  });
 });
-
-/* ---------- 실행 ---------- */
-loadProduct();
