@@ -26,7 +26,7 @@ loginBtn.addEventListener('click', async function(event) {
         const response = await fetch('https://api.wenivops.co.kr/services/open-market/accounts/login/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username: userID, password: userPassword })
+            body: JSON.stringify({ username: userID, password: userPassword, login_type: userType})
         });
         
         const data = await response.json();
