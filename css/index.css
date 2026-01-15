@@ -96,6 +96,12 @@
     margin : 0 auto;
 }
 
+.product-link {
+    text-decoration: none; 
+    color: inherit;      
+    display: block;      
+}
+
 .product-img {
     width: 100%;
     aspect-ratio: 1 / 1 ;
@@ -112,7 +118,7 @@
     transition: transform 0.3s ease;
 }
 
-.product-card:hover .product-img img {
+.product-link:hover .product-img img {
     transform: scale(1.05);
 }
 

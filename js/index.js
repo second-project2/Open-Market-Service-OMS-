@@ -69,17 +69,20 @@ async function fetchProducts() {
 
         // data.results 안에 든 상품들을 하나씩 꺼냅니다.
         data.results.forEach(item => {
+         
             const li = document.createElement("li");
             li.className = "product-card";
 
             // 서버 응답(Res) 구조에 맞춰 데이터를 매칭합니다.
             li.innerHTML = `
+                <a href="./product.html?id=${item.id}" class="product-link">
                 <div class="product-img">
                     <img src="${item.image}" alt="${item.name}">
                 </div>
                 <p class="seller-name">${item.seller.store_name}</p> 
                 <p class="product-name">${item.name}</p>
                 <p class="product-price">${item.price.toLocaleString()}<span>원</span></p>
+                </a>
             `;
             productList.appendChild(li);
         });
