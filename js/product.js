@@ -1,10 +1,10 @@
-// js/product.js (전체 교체)
+// js/product.js 
 
 const API_BASE = "https://api.wenivops.co.kr/services/open-market";
 
 function getProductIdFromQuery() {
   const params = new URLSearchParams(window.location.search);
-  return params.get("id"); // ✅ 규칙: product.html?id=101 에서 id 사용
+  return params.get("id") || params.get("productId");
 }
 
 function formatNumber(n) {
