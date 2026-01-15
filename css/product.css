@@ -1,4 +1,4 @@
-/* css/product.css (최종본 전체) */
+/* css/product.css (전체 교체) */
 
 .product-wrap {
   width: 1280px;
@@ -29,10 +29,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.product-image.no-image {
-  background: var(--color-gray-light);
 }
 
 /* 우측 텍스트 */
@@ -97,11 +93,6 @@
   background: #fff;
   color: var(--color-gray-dark);
   cursor: pointer;
-}
-
-.qty-btn:disabled {
-  cursor: not-allowed;
-  color: var(--color-gray-medium);
 }
 
 .qty {
@@ -210,19 +201,19 @@
   border-bottom-color: var(--color-primary);
 }
 
-/* 모달 (360x200) */
+/* ✅ 모달 (show 기준) */
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  display: none;
+  display: none; /* 기본 숨김 */
   justify-content: center;
   align-items: center;
   background: rgba(0, 0, 0, 0.35);
   z-index: 999;
 }
 
-.modal-backdrop.is-open {
-  display: flex;
+.modal-backdrop.show {
+  display: flex; /* show 붙으면 보임 */
 }
 
 .modal {
@@ -280,73 +271,4 @@
   background: var(--color-primary);
   border: 0;
   color: #fff;
-}
-
-/* footer (index.css에서 복사) */
-.footer {
-  width: 100%;
-  height: 298px;
-  background-color: var(--color-gray-light);
-  display: flex;
-  align-items: center;
-  padding: 60px 0 63px 0;
-}
-
-.footer .container {
-  width: 1280px;
-  margin: 0 auto;
-}
-
-.footer-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-.footer-links ul {
-  display: flex;
-  gap: 14px;
-}
-
-.footer-links a {
-  font-size: 14px;
-  color: #000000;
-  text-decoration: none;
-}
-
-.footer-links a.bold {
-  font-weight: 700;
-}
-
-.social-icons {
-  display: flex;
-  gap: 14px;
-}
-
-.social-icons img {
-  width: 32px;
-  height: 32px;
-}
-
-.footer-divider {
-  border: none;
-  border-top: 1px solid var(--color-gray-medium);
-  margin-bottom: 30px;
-}
-
-.footer-bottom {
-  font-size: 14px;
-  line-height: 24px;
-  color: var(--color-gray-dark);
-}
-
-.footer-bottom strong {
-  display: block;
-  margin-bottom: 10px;
-  font-weight: 700;
-}
-
-.footer-bottom address {
-  font-style: normal;
 }
