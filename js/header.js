@@ -1,3 +1,19 @@
+async function loadLayout() {
+    const headerElement = document.getElementById('main-header'); //
+    if (headerElement) {
+        const res = await fetch('./header.html');
+        const data = await res.text();
+        headerElement.innerHTML = data;
+    }
+
+    const footerElement = document.getElementById('common-footer'); //
+    if (footerElement) {
+        const res = await fetch('./footer.html');
+        const data = await res.text();
+        footerElement.innerHTML = data;
+    }
+}
+
 function updateNavigation() {
     const userMenu = document.querySelector('.user-menu');
     if (!userMenu) return;
@@ -60,7 +76,8 @@ function handleSearch() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    await loadLayout();
     updateNavigation();
     const searchInput = document.querySelector('.search-container input');
     const searchBtn = document.querySelector('.search-btn');
