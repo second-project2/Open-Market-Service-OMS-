@@ -18,8 +18,9 @@ function updateNavigation() {
     const userMenu = document.querySelector('.user-menu');
     if (!userMenu) return;
     
-    const loginToken = localStorage.getItem('login-token');
-    const userRole = localStorage.getItem('user-role'); 
+    const loginToken = localStorage.getItem('accessToken');
+    const userInfo = JSON.parse(localStorage.getItem('userInfo') || '{}');
+    const userRole = userInfo.user_type; 
   
     if (loginToken) {
         // [로그인 후 상태]
