@@ -149,8 +149,32 @@
 
 
 @media screen and (max-width: 768px) {
+    header {
+        padding: 15px 0;
+    }
+    .header-inner {
+        padding: 0 15px;
+        gap: 10px;
+    }
+    .logo img {
+        width: 94px; 
+        height: auto;
+    }
     .search-container {
         width: 250px;
+        max-width: 100%;
+    }
+    .user-menu {
+        gap: 15px; 
+    }
+
+    .menu-item span {
+        display: none; 
+    }
+
+    .menu-item img {
+        width: 28px; 
+        height: 28px;
     }
     
     .banner-section {
