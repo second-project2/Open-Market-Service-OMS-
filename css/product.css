@@ -1,0 +1,352 @@
+/* css/product.css (최종본 전체) */
+
+.product-wrap {
+  width: 1280px;
+  margin: 80px auto;
+}
+
+.product-detail {
+  display: grid;
+  grid-template-columns: 600px 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+/* 600x600 이미지 */
+.product-image {
+  width: 600px;
+  height: 600px;
+  border: 1px solid var(--color-gray-medium);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #d9d9d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-image.no-image {
+  background: var(--color-gray-light);
+}
+
+/* 우측 텍스트 */
+.seller {
+  font-size: 14px;
+  color: var(--color-gray-dark);
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-black);
+  margin-bottom: 14px;
+}
+
+.price {
+  font-size: 24px;
+  color: var(--color-black);
+  margin-bottom: 20px;
+}
+
+.price strong {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.price span {
+  font-size: 18px;
+  margin-left: 4px;
+}
+
+.divider {
+  height: 2px;
+  background: var(--color-gray-medium);
+  margin: 20px 0;
+}
+
+.divider.thin {
+  height: 1px;
+}
+
+.shipping {
+  font-size: 14px;
+  color: var(--color-gray-dark);
+  margin-bottom: 14px;
+}
+
+/* 수량 */
+.qty-row {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--color-gray-medium);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.qty-btn {
+  width: 50px;
+  height: 50px;
+  border: 0;
+  background: #fff;
+  color: var(--color-gray-dark);
+  cursor: pointer;
+}
+
+.qty-btn:disabled {
+  cursor: not-allowed;
+  color: var(--color-gray-medium);
+}
+
+.qty {
+  width: 50px;
+  height: 50px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid var(--color-gray-medium);
+  border-right: 1px solid var(--color-gray-medium);
+  font-size: 16px;
+  color: var(--color-black);
+}
+
+/* 총액 */
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 18px 0 22px;
+}
+
+.total-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-black);
+}
+
+.total-right {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.total-qty {
+  font-size: 14px;
+  color: var(--color-gray-dark);
+}
+
+.total-qty strong {
+  color: var(--color-primary);
+}
+
+.total-price {
+  font-size: 18px;
+  color: var(--color-primary);
+}
+
+.total-price strong {
+  font-size: 36px;
+}
+
+/* 버튼 */
+.btn-row {
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  height: 60px;
+  border: 0;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.buy-now {
+  width: 416px;
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.cart {
+  width: 200px;
+  background: var(--color-gray-dark);
+  color: #fff;
+}
+
+.hint {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--color-gray-dark);
+}
+
+/* 탭 */
+.tabs {
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 2px solid var(--color-gray-medium);
+}
+
+.tab {
+  height: 60px;
+  border: 0;
+  background: transparent;
+  font-size: 16px;
+  color: var(--color-gray-dark);
+  cursor: pointer;
+  border-bottom: 4px solid transparent;
+}
+
+.tab.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+/* 모달 (360x200) */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 999;
+}
+
+.modal-backdrop.is-open {
+  display: flex;
+}
+
+.modal {
+  width: 360px;
+  height: 200px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 24px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  border: 0;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--color-gray-dark);
+}
+
+.modal-text {
+  text-align: center;
+  font-size: 14px;
+  line-height: 22px;
+  margin-top: 24px;
+  color: var(--color-black);
+}
+
+.modal-actions {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.modal-btn {
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.modal-btn.cancel {
+  background: #fff;
+  border: 1px solid var(--color-gray-medium);
+  color: var(--color-gray-dark);
+}
+
+.modal-btn.confirm {
+  background: var(--color-primary);
+  border: 0;
+  color: #fff;
+}
+
+/* footer (index.css에서 복사) */
+.footer {
+  width: 100%;
+  height: 298px;
+  background-color: var(--color-gray-light);
+  display: flex;
+  align-items: center;
+  padding: 60px 0 63px 0;
+}
+
+.footer .container {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.footer-links ul {
+  display: flex;
+  gap: 14px;
+}
+
+.footer-links a {
+  font-size: 14px;
+  color: #000000;
+  text-decoration: none;
+}
+
+.footer-links a.bold {
+  font-weight: 700;
+}
+
+.social-icons {
+  display: flex;
+  gap: 14px;
+}
+
+.social-icons img {
+  width: 32px;
+  height: 32px;
+}
+
+.footer-divider {
+  border: none;
+  border-top: 1px solid var(--color-gray-medium);
+  margin-bottom: 30px;
+}
+
+.footer-bottom {
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--color-gray-dark);
+}
+
+.footer-bottom strong {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.footer-bottom address {
+  font-style: normal;
+}

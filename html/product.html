@@ -1,0 +1,141 @@
+<!-- html/product.html (최종본 전체) -->
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>product</title>
+
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/font.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/product.css" />
+  </head>
+
+  <body>
+    <!-- ✅ GNB: 팀원이 만든 코드가 나오면 여기에 그대로 복붙 -->
+    <header class="gnb"></header>
+
+    <main class="product-wrap">
+      <section class="product-detail" aria-label="상품 상세">
+        <!-- 왼쪽 이미지 -->
+        <div class="product-left">
+          <div class="product-image" aria-label="상품 이미지">
+            <img id="productImage" alt="상품 이미지" />
+          </div>
+        </div>
+
+        <!-- 오른쪽 정보 -->
+        <div class="product-right">
+          <p class="seller" id="sellerName">판매자</p>
+          <h1 class="title" id="productName">상품명</h1>
+
+          <p class="price">
+            <strong id="productPrice">0</strong><span>원</span>
+          </p>
+
+          <div class="divider"></div>
+
+          <p class="shipping" id="shippingInfo">배송</p>
+
+          <!-- ✅ 수량: + / - 로만 변경 -->
+          <div class="qty-row" aria-label="수량 선택">
+            <button type="button" class="qty-btn" aria-label="수량 감소" data-qty="minus">
+              -
+            </button>
+            <span class="qty" aria-label="수량" id="qtyValue">1</span>
+            <button type="button" class="qty-btn" aria-label="수량 증가" data-qty="plus">
+              +
+            </button>
+          </div>
+
+          <div class="divider thin"></div>
+
+          <div class="total-row">
+            <span class="total-label">총 상품 금액</span>
+            <span class="total-right">
+              <span class="total-qty">총 수량 <strong id="totalQty">1</strong>개</span>
+              <span class="total-price"><strong id="totalPrice">0</strong>원</span>
+            </span>
+          </div>
+
+          <div class="btn-row">
+            <!-- ✅ 비로그인 시 모달 -->
+            <button type="button" class="btn buy-now" data-requires-login="true">
+              바로 구매
+            </button>
+            <button type="button" class="btn cart" data-requires-login="true">
+              장바구니
+            </button>
+          </div>
+
+          <p class="hint" id="pageHint" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <!-- 탭 UI (UI만) -->
+      <nav class="tabs" aria-label="상세 탭">
+        <button type="button" class="tab active">버튼</button>
+        <button type="button" class="tab">리뷰</button>
+        <button type="button" class="tab">Q&amp;A</button>
+        <button type="button" class="tab">반품/교환정보</button>
+      </nav>
+    </main>
+
+    <!-- ✅ footer: index.html에서 가져온 정본 그대로 -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-top">
+          <nav class="footer-links">
+            <ul>
+              <li><a href="#">호두샵 소개</a></li>
+              <li>|</li>
+              <li><a href="#">이용약관</a></li>
+              <li>|</li>
+              <li><a href="#" class="bold">개인정보처리방침</a></li>
+              <li>|</li>
+              <li><a href="#">전자금융거래약관</a></li>
+              <li>|</li>
+              <li><a href="#">청소년보호정책</a></li>
+              <li>|</li>
+              <li><a href="#">제휴문의</a></li>
+            </ul>
+          </nav>
+          <div class="social-icons">
+            <a href="#"><img src="../assets/icons/icon-insta.svg" alt="인스타그램" /></a>
+            <a href="#"><img src="../assets/icons/icon-fb.svg" alt="페이스북" /></a>
+            <a href="#"><img src="../assets/icons/icon-yt.svg" alt="유튜브" /></a>
+          </div>
+        </div>
+
+        <hr class="footer-divider" />
+
+        <div class="footer-bottom">
+          <strong>(주)HODU SHOP</strong>
+          <address>
+            제주특별자치도 제주시 동광로 137 제주코딩베이스캠프<br />
+            사업자 번호 : 000-0000-0000 | 통신판매업<br />
+            대표 : 김호두
+          </address>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ✅ 비로그인 모달(360x200) -->
+    <div class="modal-backdrop" id="loginModal" aria-hidden="true">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button type="button" class="modal-close" aria-label="닫기">×</button>
+        <p class="modal-text" id="modalTitle">
+          로그인이 필요한 서비스입니다.<br />
+          로그인 하시겠습니까?
+        </p>
+        <div class="modal-actions">
+          <button type="button" class="modal-btn cancel">아니오</button>
+          <button type="button" class="modal-btn confirm">예</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/product.js"></script>
+  </body>
+</html>
