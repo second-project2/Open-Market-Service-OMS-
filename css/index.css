@@ -1,3 +1,4 @@
+/* 헤더 스타일 */
 header {
     width: 100%;
     padding: 26px 0;
@@ -72,6 +73,78 @@ header {
     font-size: 12px;
     color: var(--color-gray-dark);
 }
+
+/* 푸터 스타일 */
+.footer {
+    width: 100%;
+    height: 298px; 
+    background-color: var(--color-gray-light);
+    display: flex;
+    align-items: center;
+    padding: 60px 0 63px 0;
+}
+
+.footer .container {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.footer-links ul {
+    display: flex;
+    gap: 14px; /* 사이 줄 인가?*/
+}
+
+.footer-links a {
+    font-size: 14px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    font-weight: 700;
+    transition: font-weight 0.2s;
+}
+
+/* SNS 아이콘 */
+.social-icons {
+    display: flex;
+    gap: 14px;
+}
+
+.social-icons img {
+    width: 32px;
+    height: 32px;
+}
+
+.footer-divider {
+    border: none;
+    border-top: 1px solid var(--color-gray-medium); 
+    margin-bottom: 30px;
+}
+
+.footer-bottom {
+    font-size: 14px;
+    line-height: 24px;
+    color: var(--color-gray-dark);
+}
+
+.footer-bottom strong {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.footer-bottom address {
+    font-style: normal;
+} 
+
 
 /* 배너 */
 .banner-section {
@@ -216,74 +289,6 @@ header {
 }
 
 
-.footer {
-    width: 100%;
-    height: 298px; 
-    background-color: var(--color-gray-light);
-    display: flex;
-    align-items: center;
-    padding: 60px 0 63px 0;
-}
-
-.footer .container {
-    width: 1280px;
-    margin: 0 auto;
-}
-
-.footer-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-}
-
-.footer-links ul {
-    display: flex;
-    gap: 14px; /* 사이 줄 인가?*/
-}
-
-.footer-links a {
-    font-size: 14px;
-    color: #000000;
-    text-decoration: none;
-}
-
-.footer-links a.bold {
-    font-weight: 700; 
-}
-
-/* SNS 아이콘 */
-.social-icons {
-    display: flex;
-    gap: 14px;
-}
-
-.social-icons img {
-    width: 32px;
-    height: 32px;
-}
-
-.footer-divider {
-    border: none;
-    border-top: 1px solid var(--color-gray-medium); 
-    margin-bottom: 30px;
-}
-
-.footer-bottom {
-    font-size: 14px;
-    line-height: 24px;
-    color: var(--color-gray-dark);
-}
-
-.footer-bottom strong {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: 700;
-}
-
-.footer-bottom address {
-    font-style: normal;
-} 
 
 @media screen and (max-width: 768px) {
     .search-container {
