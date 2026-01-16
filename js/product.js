@@ -1,5 +1,5 @@
 // js/product.js 
-
+import { openLoginModal } from './modal.js';
 const API_BASE = "https://api.wenivops.co.kr/services/open-market";
 
 function getProductIdFromQuery() {
@@ -14,20 +14,6 @@ function formatNumber(n) {
 function isLoggedIn() {
   // ✅ 로그인 판별: login.js에서 저장한 키 사용
   return !!localStorage.getItem("accessToken");
-}
-
-function openLoginModal() {
-  const modal = document.getElementById("loginModal");
-  if (!modal) return;
-  modal.classList.add("show");
-  modal.setAttribute("aria-hidden", "false");
-}
-
-function closeLoginModal() {
-  const modal = document.getElementById("loginModal");
-  if (!modal) return;
-  modal.classList.remove("show");
-  modal.setAttribute("aria-hidden", "true");
 }
 
 async function fetchProduct(productId) {
@@ -54,12 +40,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const loginRequiredBtns = document.querySelectorAll("[data-requires-login='true']");
   const hint = document.getElementById("pageHint");
-
-  // 모달 버튼
-  const modal = document.getElementById("loginModal");
-  const modalClose = modal?.querySelector(".modal-close");
-  const modalCancel = modal?.querySelector(".modal-btn.cancel");
-  const modalConfirm = modal?.querySelector(".modal-btn.confirm");
 
   // ===== 안전장치 =====
   if (!plusBtn || !minusBtn || !qtyValue) {
@@ -132,31 +112,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     updateTotals(current - 1);
   });
 
-  // ===== 비로그인 모달 처리 (장바구니/바로구매) =====
   loginRequiredBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
+      console.log("버튼 클릭됨!");
       if (!isLoggedIn()) {
+        // 비로그인이면 modal.js에서 가져온 공통 모달 열기 실행
         openLoginModal();
         return;
       }
-
-      // ✅ 로그인 상태면(과제 범위상 실제 주문/장바구니 연동은 생략)
-      alert("로그인 상태입니다. (과제 범위: 실제 기능 연동은 다음 단계)");
+      // 로그인 상태일 때
+      alert("로그인 상태입니다. 장바구니에 담겼습니다.");
     });
   });
 
-  // ===== 모달 닫기/이동 =====
-  modalClose?.addEventListener("click", closeLoginModal);
-  modalCancel?.addEventListener("click", closeLoginModal);
-
-  // "예" → login.html 이동
-  modalConfirm?.addEventListener("click", () => {
-    closeLoginModal();
-    window.location.href = "./login.html";
-  });
-
-  // 바깥 클릭 시 닫기
-  modal?.addEventListener("click", (e) => {
-    if (e.target === modal) closeLoginModal();
-  });
+  // ⚠️ [전체 삭제] 기존 코드 하단에 있던 '모달 닫기/이동/바깥 클릭' 
+  // 관련 이벤트 리스너들은 모두 지웠습니다.
 });
