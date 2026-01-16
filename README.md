@@ -62,29 +62,47 @@
 ### 2.3 프로젝트 구조
 GitHub Actions 배포 설정에 따라 html 폴더를 루트(root)로 하여 배포됩니다.
 ```
-root
-├── assets/              # 아이콘, 이미지 리소스
-│   ├── icons/
-│   └── images/
-├── css/                 # 스타일시트 모음
-│   ├── common.css       # 공통 스타일
-│   ├── login.css        # 로그인 페이지 스타일
-│   ├── signup.css       # 회원가입 페이지 스타일
-│   ├── product.css      # 상품 관련 스타일
-│   └── ...
-├── js/                  # 자바스크립트 로직 모음
-│   ├── common.js        # 공통 함수
-│   ├── login.js         # 로그인 로직
-│   ├── signup.js        # 회원가입 로직
-│   ├── product.js       # 상품 관련 로직
-│   └── ...
-├── html/                # 서브 페이지 HTML
-│   ├── login.html
-│   ├── signup.html
-│   ├── product.html
-│   └── ...
-├── index.html           # 메인 페이지 (진입점)
-└── README.md
+📦 Open-Market-Service-HODU
+ ┣ 📂 .github
+ ┃ ┗ 📂 workflows
+ ┃   ┗ 📜 static.yml             # GitHub Actions 자동 배포 설정 파일
+ ┣ 📂 assets
+ ┃ ┣ 📂 banner                   # 메인 배너 이미지 리소스
+ ┃ ┣ 📂 icons                    # 아이콘 관련 리소스 (Logo, Check 등)
+ ┃ ┗ 📂 images                   # 일반 이미지 리소스
+ ┣ 📂 css
+ ┃ ┣ 📜 common.css               # 공통 변수(컬러, 폰트) 및 GNB 스타일
+ ┃ ┣ 📜 error.css                # 에러 페이지 전용 스타일
+ ┃ ┣ 📜 font.css                 # 웹 폰트 설정 파일
+ ┃ ┣ 📜 header.css               # 상단 네비게이션 전용 스타일
+ ┃ ┣ 📜 index.css                # 메인 상품 목록 스타일
+ ┃ ┣ 📜 login.css                # 로그인 페이지 스타일
+ ┃ ┣ 📜 mypage.css               # 마이페이지 관련 스타일
+ ┃ ┣ 📜 product.css              # 상품 상세 페이지 스타일
+ ┃ ┣ 📜 reset.css                # 브라우저 기본 스타일 초기화
+ ┃ ┗ 📜 signup.css               # 회원가입 및 유효성 검사 메시지 스타일
+ ┣ 📂 html
+ ┃ ┣ 📜 error.html               # 404 및 에러 안내 페이지
+ ┃ ┣ 📜 footer.html              # 하단 푸터 컴포넌트 (분리 관리)
+ ┃ ┣ 📜 header.html              # 상단 헤더 컴포넌트 (분리 관리)
+ ┃ ┣ 📜 index.html               # 메인 페이지 (서브 경로용)
+ ┃ ┣ 📜 login.html               # 로그인 페이지
+ ┃ ┣ 📜 mypage.html              # 마이페이지
+ ┃ ┣ 📜 product.html             # 상품 상세 정보 페이지
+ ┃ ┣ 📜 signup.html              # 회원가입 페이지
+ ┃ ┗ 📜 test.html                # 기능 테스트용 임시 파일
+ ┣ 📂 js
+ ┃ ┣ 📜 common.js                # 공통 유틸리티 함수
+ ┃ ┣ 📜 error.js                 # 에러 핸들링 스크립트
+ ┃ ┣ 📜 header.js                # 헤더 드롭다운 및 상태 관리 로직
+ ┃ ┣ 📜 index.js                 # 상품 목록 API 호출 및 렌더링 (강명주)
+ ┃ ┣ 📜 login.js                 # 로그인 인증 및 Focus 로직 (강지연)
+ ┃ ┣ 📜 mypage.js                # 마이페이지 정보 관리 로직
+ ┃ ┣ 📜 product.js               # 상품 수량 및 가격 계산 로직 (김범규)
+ ┃ ┗ 📜 signup.js                # 회원가입 유효성 및 API 연동 (전준성)
+ ┣ 📜 index.html                 # 서비스 전체 메인 진입점
+ ┣ 📜 README.md                  # 프로젝트 통합 문서
+ ┗ 📜 test.md                    # 개발 기록용 임시 문서
 ```
 ### 3. 개발 일정 (WBS)
 날짜,구분,담당자,상세 개발 내용
