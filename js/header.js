@@ -15,61 +15,58 @@ async function loadLayout() {
 }
 
 function updateNavigation() {
-    const userMenu = document.querySelector('.user-menu');
-    if (!userMenu) return;
-    
+    const userAccountBtn = document.getElementById('userAccountBtn');
+    const userText = document.getElementById('userText');
+    const userIcon = document.getElementById('userIcon');
+    const dropdown = document.getElementById('myPageDropdown');
+    const logoutBtn = document.getElementById('logoutBtn');
+
     const loginToken = localStorage.getItem('accessToken');
-    const userInfo = JSON.parse(localStorage.getItem('userInfo') || '{}');
-    const userRole = userInfo.user_type; 
+    if (!userAccountBtn) return;
   
-    if (loginToken) {
-        // [로그인 후 상태]
-        if (userRole === 'seller') {
-            // 판매자로 로그인했을 때
-            userMenu.innerHTML = `
-                <div class="menu-item" onclick="location.href='mypage.html'">
-                    <img src="../assets/icons/icon-user.svg" alt="mypage">
-                    <span>마이페이지</span>
-                </div>
-                <div class="menu-item seller-center" onclick="location.href='seller-center.html'">
-                    <img src="../assets/icons/icon-shopping-bag.svg" alt="seller center">
-                    <span>판매자 센터</span>
-                </div>
-            `;
-        } else {
-            // 일반 구매자로 로그인했을 때
-            userMenu.innerHTML = `
-                <div class="menu-item" onclick="location.href='cart.html'">
-                    <img src="../assets/icons/icon-shopping-cart.svg" alt="cart">
-                    <span>장바구니</span>
-                </div>
-                <div class="menu-item" onclick="location.href='mypage.html'">
-                    <img src="../assets/icons/icon-user.svg" alt="mypage">
-                    <span>마이페이지</span>
-                </div>
-            `;
+   if (loginToken) {
+        userText.innerText = "마이페이지";
+        userAccountBtn.onclick = (e) => {
+            e.stopPropagation(); 
+            const isOpen = dropdown.classList.toggle('show'); 
+            userIcon.src = isOpen ? "../assets/icons/icon-user-2.svg" : "../assets/icons/icon-user.svg";
+        };
+        if (logoutBtn) {
+            logoutBtn.onclick = (e) => {
+                e.stopPropagation(); 
+                if (confirm("로그아웃 하시겠습니까?")) {
+                    localStorage.clear(); 
+                    location.href = 'index.html'; 
+                } // ✅ 빠졌던 중괄호 추가
+            };
         }
     } else {
-        // [로그인 전 상태]
-        userMenu.innerHTML = `
-            <div class="menu-item" onclick="location.href='cart.html'">
-                <img src="../assets/icons/icon-shopping-cart.svg" alt="cart">
-                <span>장바구니</span>
-            </div>
-            <div class="menu-item" onclick="location.href='login.html'">
-                <img src="../assets/icons/icon-user.svg" alt="login">
-                <span>로그인</span>
-            </div>
-        `;
+        // [비로그인 상태]
+        userText.innerText = "로그인";
+        userIcon.src = "../assets/icons/icon-user.svg";
+        userAccountBtn.onclick = () => {
+            location.href = 'login.html';
+        };
+        if (dropdown) dropdown.classList.remove('show');
     }
 }
 
+// 화면 클릭 시 드롭다운 닫기
+document.addEventListener('click', () => {
+    const dropdown = document.getElementById('myPageDropdown');
+    const userIcon = document.getElementById('userIcon');
+    if (dropdown && dropdown.classList.contains('show')) {
+        dropdown.classList.remove('show');
+        if (userIcon) userIcon.src = "../assets/icons/icon-user.svg";
+    }
+});
+
 function handleSearch() {
     const searchInput = document.querySelector('.search-container input');
+    if (!searchInput) return;
     const keyword = searchInput.value.trim();
 
     if (keyword) {
-        // 검색어를 URL 파라미터로 전달하며 메인 페이지로 이동
         location.href = `index.html?search=${keyword}`;
     } else {
         alert("검색어를 입력해주세요!");
@@ -78,17 +75,16 @@ function handleSearch() {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-    await loadLayout();
-    updateNavigation();
+    await loadLayout(); // 헤더/푸터 먼저 로드
+    updateNavigation(); // 로드된 요소에 기능 연결
+    
     const searchInput = document.querySelector('.search-container input');
     const searchBtn = document.querySelector('.search-btn');
 
     if (searchBtn && searchInput) {
         searchBtn.addEventListener('click', handleSearch);
         searchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                handleSearch();
-            }
+            if (e.key === 'Enter') handleSearch();
         });
     }
 });
