@@ -98,25 +98,11 @@
     <!-- ✅ 팀원이 분리한 footer.html이 여기에 주입됨 -->
     <footer id="common-footer" class="footer"></footer>
 
-    <!-- ✅ 비로그인 모달(360x200) -->
-    <div class="modal-backdrop" id="loginModal" aria-hidden="true">
-      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-        <button type="button" class="modal-close" aria-label="닫기">×</button>
-        <p class="modal-text" id="modalTitle">
-          로그인이 필요한 서비스입니다.<br />
-          로그인 하시겠습니까?
-        </p>
-        <div class="modal-actions">
-          <button type="button" class="modal-btn cancel">아니오</button>
-          <button type="button" class="modal-btn confirm">예</button>
-        </div>
-      </div>
-    </div>
 
     <!-- ✅ header/footer 주입 스크립트 (팀원 제공) -->
-    <script src="../js/header.js"></script>
+    <script type="module" src="../js/header.js"></script>
 
     <!-- ✅ 상세 페이지 로직 -->
-    <script src="../js/product.js"></script>
+    <script type="module" src="../js/product.js"></script>
   </body>
 </html>

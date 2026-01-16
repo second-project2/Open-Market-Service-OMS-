@@ -1,3 +1,5 @@
+import { openLoginModal, setupModalEvents } from './modal.js';
+
 async function loadLayout() {
     const headerElement = document.getElementById('main-header'); //
     if (headerElement) {
@@ -20,10 +22,27 @@ function updateNavigation() {
     const userIcon = document.getElementById('userIcon');
     const dropdown = document.getElementById('myPageDropdown');
     const logoutBtn = document.getElementById('logoutBtn');
+    const cartBtn = document.querySelector('.menu-item img[alt="cart"]')?.parentElement;
 
     const loginToken = localStorage.getItem('accessToken');
-    if (!userAccountBtn) return;
-  
+    const userInfo = JSON.parse(localStorage.getItem('userInfo') || '{}');
+    const userRole = userInfo.user_type; 
+
+    if (!userAccountBtn) return; 
+
+    // 
+    // 2. 장바구니 클릭 로직 (로그인 체크)
+    // 
+    if (cartBtn) {
+        cartBtn.onclick = (e) => {
+            if (!loginToken) {
+                e.preventDefault(); 
+                openLoginModal();   
+            } else {
+                location.href = 'cart.html'; 
+            }
+        };
+    }
    if (loginToken) {
         userText.innerText = "마이페이지";
         userAccountBtn.onclick = (e) => {
@@ -49,6 +68,7 @@ function updateNavigation() {
         };
         if (dropdown) dropdown.classList.remove('show');
     }
+    setupModalEvents();
 }
 
 // 화면 클릭 시 드롭다운 닫기
@@ -88,3 +108,4 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 });
+

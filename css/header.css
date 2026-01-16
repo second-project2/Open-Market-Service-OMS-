@@ -250,3 +250,74 @@ header {
         margin-bottom: 8px;
     }
 }
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  display: none; /* 기본 숨김 */
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 999;
+}
+
+.modal-backdrop.show {
+  display: flex; /* show 붙으면 보임 */
+}
+
+.modal {
+  width: 360px;
+  height: 200px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 24px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  border: 0;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--color-gray-dark);
+}
+
+.modal-text {
+  text-align: center;
+  font-size: 14px;
+  line-height: 22px;
+  margin-top: 24px;
+  color: var(--color-black);
+}
+
+.modal-actions {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.modal-btn {
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.modal-btn.cancel {
+  background: #fff;
+  border: 1px solid var(--color-gray-medium);
+  color: var(--color-gray-dark);
+}
+
+.modal-btn.confirm {
+  background: var(--color-primary);
+  border: 0;
+  color: #fff;
+}
