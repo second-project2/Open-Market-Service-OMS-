@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const json = await res.json();
 
             if (res.ok) {
-                alert('회원가입 성공!');
+                alert('회원가입이 완료되었습니다.');
                 location.href = './login.html';
             } else {
                 // 에러 처리
