@@ -46,11 +46,9 @@ async function fetchProducts() {
     let API_URL = "https://api.wenivops.co.kr/services/open-market/products/";
     
     if (searchKeyword) {
-        // [검색 모드] 배너를 숨기고 검색 API 사용
         if (bannerSection) bannerSection.style.display = 'none';
         API_URL = `${API_URL}?search=${encodeURIComponent(searchKeyword)}`;
     } else {
-        // [일반 모드] 배너를 보여주고 전체 API 사용
         if (bannerSection) bannerSection.style.display = 'block';
     }
     
@@ -59,7 +57,6 @@ async function fetchProducts() {
         const data = await response.json();
         productList.innerHTML = "";
 
-        // [추가] 검색 결과가 없는 경우 처리
         if (data.results.length === 0) {
             productList.innerHTML = `<li class="no-result" style="width:100%; text-align:center; padding: 100px 0;">
                 찾으시는 상품이 없습니다.
@@ -67,13 +64,9 @@ async function fetchProducts() {
             return;
         }
 
-        // data.results 안에 든 상품들을 하나씩 꺼냅니다.
         data.results.forEach(item => {
-         
             const li = document.createElement("li");
             li.className = "product-card";
-
-            // 서버 응답(Res) 구조에 맞춰 데이터를 매칭합니다.
             li.innerHTML = `
                 <a href="./product.html?id=${item.id}" class="product-link">
                 <div class="product-img">
