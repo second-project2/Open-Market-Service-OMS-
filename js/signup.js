@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
             icons.pw.classList.add('active'); // 아이콘 보이기
             return true;
         } else {
-            showMsg(msgs.pw, '8자 이상, 영문 대 소문자, 숫자, 특수문자를 사용하세요.', 'error');
+            showMsg(msgs.pw, '8자 이상, 영문 소문자, 숫자, 특수문자를 사용하세요.', 'error');
             icons.pw.classList.remove('active');
             return false;
         }
