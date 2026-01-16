@@ -6,6 +6,7 @@ form.addEventListener('submit', async function (event) {
 
   const userID = document.getElementById('user-id').value.trim();
   const userPassword = document.getElementById('user-password').value.trim();
+
   const userType =
     document.querySelector('input[name="user-type"]:checked')?.value
     || 'BUYER';
@@ -45,7 +46,7 @@ form.addEventListener('submit', async function (event) {
     const data = await response.json();
 
     if (!response.ok) {
-      errorMsg.innerText = data.error || '로그인에 실패했습니다.';
+      errorMsg.innerText = '아이디 또는 비밀번호가 일치하지 않습니다.';
       document.getElementById('user-password').value = '';
       document.getElementById('user-password').focus();
       return;
