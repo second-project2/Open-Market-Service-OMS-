@@ -1,5 +1,3 @@
-// js/modal.js
-
 export function openLoginModal() {
     const modal = document.getElementById('loginModal');
     if (modal) {
@@ -22,7 +20,6 @@ export function setupModalEvents() {
     const modalConfirm = document.getElementById('modalConfirm');
     const modalBackdrop = document.getElementById('loginModal');
 
-    // ✅ ?. 대신 if 문을 사용하여 안전하게 이벤트를 연결합니다.
     if (modalClose) {
         modalClose.onclick = () => closeLoginModal();
     }
@@ -34,7 +31,6 @@ export function setupModalEvents() {
     if (modalConfirm) {
         modalConfirm.onclick = () => {
             closeLoginModal();
-            // index.html이 html 폴더 안에 있다면 ./login.html이 맞습니다.
             window.location.href = "./login.html";
         };
     }
@@ -46,9 +42,8 @@ export function setupModalEvents() {
     }
 
     window.addEventListener('keydown', (e) => {
-        // 눌린 키의 이름이 'Escape'인지 확인합니다.
         if (e.key === 'Escape') {
-            closeLoginModal(); // 이미 만들어진 닫기 함수를 호출하여 중복을 피합니다.
+            closeLoginModal();
         }
     });
 }

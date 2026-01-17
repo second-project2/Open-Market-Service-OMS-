@@ -27,7 +27,7 @@ dots.forEach((dot, index) => {
         updateSlider();
     });
 });
-// 6. (선택사항) 5초마다 자동으로 슬라이드 넘기기
+
 setInterval(() => {
     currentIndex = (currentIndex + 1) % totalSlides;
     updateSlider();
