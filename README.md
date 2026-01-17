@@ -30,7 +30,7 @@ HODU(호두)는 사용자가 다양한 상품을 쉽고 빠르게 탐색하고, 
         <th>팀장 전준성</th>
         <th>팀원 강지연</th>
         <th>팀원 OOO</th>
-        <th>팀원 OOO</th>
+        <th>팀원 김범규</th>
     </tr>
     <tr>
         <td align="center"><img src="https://github.com/user-attachments/assets/e1503812-210d-4009-abb0-0d2dc9751648" width="150px" style="object-fit: cover;"></td>
@@ -38,13 +38,13 @@ HODU(호두)는 사용자가 다양한 상품을 쉽고 빠르게 탐색하고, 
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8Br-BZrPih1vBxXY3CYfqiZ0SksqzH261o9Jw0OfN5iu2GWTowzCbZA-sTqzxaCaoy33U5p8XpiZ2T40pIXF8SqaDfgHlj8XSjr6kBQ&s=10" width="150px" style="object-fit: cover;" />
 </td>
         <td align="center"><img src="https://via.placeholder.com/100" width="100%"></td>
-      <td align="center"><img src="https://via.placeholder.com/100" width="100%"></td>
+      <td align="center"><img src="https://github.com/user-attachments/assets/6a546043-db51-479c-91c4-14d12e2f8c89" width="150px" style="object-fit: cover;" /></td>
     </tr>
     <tr>
         <td align="center"><a href="https://github.com/junsung-jeon">@junsung-jeon</a></td>
         <td align="center"><a href="https://github.com/본인아이디">@본인아이디</a></td>
         <td align="center"><a href="https://github.com/팀원아이디">@팀원아이디</a></td>
-      <td align="center"><a href="https://github.com/팀원아이디">@팀원아이디</a></td>
+      <td align="center"><a href="https://github.com/kbgqr15">@kbgqr15</a></td>
     </tr>
 </table>
 
@@ -210,10 +210,33 @@ gantt
 - **고민:** `fetch`를 통한 회원가입 중복 확인 시, 서버 오류(500)나 네트워크 문제 발생 시 사용자가 영문을 모른 채 대기하는 상황을 방지해야 했습니다.
 - **해결:** `async/await` 구문을 `try-catch` 블록으로 감싸 네트워크 에러를 포착하고, 에러 발생 시 `alert`이나 텍스트로 **"잠시 후 다시 시도해주세요"**라는 명확한 피드백을 제공하여 사용자 경험(UX)을 보호했습니다.
 
+### 5.4 [데이터] 상품 상세 API 데이터 구조 불일치 문제 (김범규)
+- **상황:** API 문서에서는 상품 가격이 `price`로 내려온다고 되어 있었지만, 실제 응답에서는 `selling_price`로 내려와 가격이 표시되지 않는 문제가 발생했습니다.
+- **원인:** 문서 기준으로 렌더링 로직을 작성하여 실제 응답 구조와 매핑이 맞지 않았습니다.
+- **해결 과정:**
+  1. `console.log`로 실제 응답 구조를 확인했습니다.
+  2. 렌더링 로직을 `data.selling_price` 기준으로 수정했습니다.
+  3. 값이 없을 경우를 대비한 예외 처리도 함께 추가했습니다.
+- **성과:** 가격 정보가 정상 렌더링되고, 구조 변경에도 대응 가능한 안정성이 확보되었습니다.
+
+### 5.5 [로직] 상품 수량 초과 입력 예외 처리 (김범규)
+- **상황:** 재고 초과 시 `+` 버튼은 비활성화되었지만, 키보드 입력/직접 값 수정으로 수량이 재고를 초과할 수 있는 문제가 발생했습니다.
+- **원인:** 버튼 클릭 이벤트만 검증하고, `input` 값 변경(`change`/`input`) 이벤트에는 검증 로직이 없었습니다.
+- **해결 과정:**
+  1. `input` 이벤트에도 재고 검증 로직을 추가했습니다.
+  2. 수량이 재고보다 크면 자동으로 최대 재고 값으로 되돌리도록 처리했습니다.
+  3. 버튼/직접 입력 모두 동일한 검증 로직을 타도록 통합했습니다.
+- **성과:** 어떤 방식으로 값을 변경해도 재고 초과가 불가능해져 구매 로직의 일관성이 확보되었습니다.
+
+
 ### 6. 개발하며 느낀점
 **전준성 (Team Leader)**
 > **"프레임워크 없는 순수 개발의 즐거움과 협업의 무게"**
 > 첫 프로젝트를 경험하면서 제가 느꼈던 가장 큰 수확은 두 가지입니다. 첫째, Vanilla JS만 이용해 MPA이지만 매끄러운 사용자 경험(Focus 이동, 실시간 유효성 검사)을 구현하며 DOM 조작과 비동기 처리에 대한 이해를 하였습니다. 또한 팀장으로서 초기 Git Flow 세팅부터 코드 병합(Merge)까지 도맡으며 Conflict를 두려워하지 않게 되었습니다. 무엇보다 팀원들의 코드가 하나로 합쳐져 유기적으로 동작하는 모습을 보며, 혼자 하는 코딩보다 함께하는 개발의 가치를 깨달았습니다.
+
+**김범규  (Team merber)**
+> **"프레임워크 없는 순수 개발의 즐거움과 협업의 무게"**
+> "사용자의 한 번의 클릭이 화면 전체를 바꾼다" 상품 상세 페이지를 구현하며, 한 번의 클릭이 단순한 숫자 변화가 아니라 화면 전체의 흐름을 바꾼다는 것을 느꼈습니다. 수량 버튼 하나에도 가격, 재고, 버튼 상태가 함께 반응해야 했고, 이 연결 구조를 설계하는 과정에서 로직의 중요성을 체감했습니다. 특히 기준값에서 다시 계산하는 방식으로 로직을 바꾸면서, 기능은 ‘돌아가기만 하면 되는 것’이 아니라 ‘언제나 같은 결과를 내야 하는 것’이라는 개발의 기본을 다시 생각하게 되었습니다. 또한 팀원들의 코드와 내 코드가 만나며 생기는 작은 충돌들을 함께 해결하는 과정에서, 개발은 혼자 완성하는 작업이 아니라 서로의 생각을 맞춰가는 과정이라는 걸 분명하게 느끼게 되었습니다
 
 [팀원 이름]
 
