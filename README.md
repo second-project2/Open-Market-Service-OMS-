@@ -42,7 +42,7 @@ HODU(호두)는 사용자가 다양한 상품을 쉽고 빠르게 탐색하고, 
     </tr>
     <tr>
         <td align="center"><a href="https://github.com/junsung-jeon">@junsung-jeon</a></td>
-        <td align="center"><a href="https://github.com/본인아이디">@본인아이디</a></td>
+        <td align="center"><a href="https://github.com/tndjqtlfh">@tndjqtlfh</a></td>
         <td align="center"><a href="https://github.com/팀원아이디">@팀원아이디</a></td>
       <td align="center"><a href="https://github.com/kbgqr15">@kbgqr15</a></td>
     </tr>
