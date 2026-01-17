@@ -181,9 +181,9 @@ gantt
   2. **소통:** 충돌 발생 시 임의로 수정하지 않고, 해당 코드를 작성한 팀원과 zep 화면 공유를 통해 "어떤 코드를 남길지(Accept Current/Incoming/Both)" 실시간으로 논의했습니다.
   3. **규칙 수립:** 이후 공통 파일 수정 시에는 반드시 단톡방에 선공지하는 규칙을 만들어 불필요한 충돌을 예방했습니다.
   4. 
-### 5.2 [성능] Lighthouse 지표 개선 (48점 → 88점 달성)
+### 5.2 [성능] Lighthouse 지표 개선 (49점 → 88점 달성)
 
-- **문제 상황**: 초기 측정 결과 성능 점수 **48점(Red)**으로 측정되었으며, 특히 LCP(Largest Contentful Paint) 지표가 **181.0s**에 달해 사용자 이탈이 우려되는 상황이었습니다.
+- **문제 상황**: 초기 측정 결과 성능 점수 **49점(Red)**으로 측정되었으며, 특히 LCP(Largest Contentful Paint) 지표가 **181.0s**에 달해 사용자 이탈이 우려되는 상황이었습니다.
 - **원인 분석**: 
   1. 고해상도 메인 배너(PNG)의 대용량 리소스로 인한 로딩 지연.
   2. 이미지 로딩 시 레이아웃이 밀리는 CLS(Cumulative Layout Shift) 현상 발생.
@@ -197,7 +197,7 @@ gantt
 <div align="center">
   <img src="https://github.com/user-attachments/assets/8664504e-6826-4eac-b582-b1ebff84fb2e" width="45%" alt="개선 전 Lighthouse (48점)" />
   <img src="https://github.com/user-attachments/assets/40f9d2e4-a65d-431f-ac86-452c1639b116" width="45%" alt="개선 후 Lighthouse (88점)" />
-  <p><i>[그림] Lighthouse 점수 비교 (왼쪽: 개선 전 48점 / 오른쪽: 개선 후 88점)</i></p>
+  <p><i>[그림] Lighthouse 점수 비교 (왼쪽: 개선 전 49점 / 오른쪽: 개선 후 88점)</i></p>
 </div>
 
 <br>
