@@ -29,7 +29,7 @@ HODU(호두)는 사용자가 다양한 상품을 쉽고 빠르게 탐색하고, 
     <tr>
         <th>팀장 전준성</th>
         <th>팀원 강지연</th>
-        <th>팀원 OOO</th>
+        <th>팀원 강명</th>
         <th>팀원 김범규</th>
     </tr>
     <tr>
@@ -37,13 +37,13 @@ HODU(호두)는 사용자가 다양한 상품을 쉽고 빠르게 탐색하고, 
         <td align="center">
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8Br-BZrPih1vBxXY3CYfqiZ0SksqzH261o9Jw0OfN5iu2GWTowzCbZA-sTqzxaCaoy33U5p8XpiZ2T40pIXF8SqaDfgHlj8XSjr6kBQ&s=10" width="150px" style="object-fit: cover;" />
 </td>
-        <td align="center"><img src="https://via.placeholder.com/100" width="100%"></td>
+        <td align="center"><img src="https://github.com/gsbymsui83-commits/my-assets/blob/main/%EC%A6%9D%EB%AA%85.jpg?raw=true" width="150px"></td>
       <td align="center"><img src="https://github.com/user-attachments/assets/6a546043-db51-479c-91c4-14d12e2f8c89" width="150px" style="object-fit: cover;" /></td>
     </tr>
     <tr>
         <td align="center"><a href="https://github.com/junsung-jeon">@junsung-jeon</a></td>
         <td align="center"><a href="https://github.com/tndjqtlfh">@tndjqtlfh</a></td>
-        <td align="center"><a href="https://github.com/팀원아이디">@팀원아이디</a></td>
+        <td align="center"><a href="https://github.com/gsbymsui83-commits">@gsbymsui83-commits</a></td>
       <td align="center"><a href="https://github.com/kbgqr15">@kbgqr15</a></td>
     </tr>
 </table>
@@ -114,14 +114,14 @@ GitHub Actions 배포 설정에 따라 html 폴더를 루트(root)로 하여 배
 | 날짜 | 구분 | 담당자 | 상세 개발 내용 |
 | :---: | :---: | :---: | :--- |
 | **화 (Day 1)** | **협업 세팅<br>& 학습** | **전원** | - 팀명 결정 및 GitHub Organization 생성<br>- **협업 툴 학습:** Issue 발행, Kanban 관리, PR/Merge 워크플로우 숙지<br>- **초기 세팅:** 레포지토리 생성 및 폴더 구조 확립 |
-| **수 (Day 2)** | **UI 구조<br>& 퍼블리싱** | **전원** | - **전준성**: 구매자/판매자 회원가입 탭 UI, 입력 폼 레이아웃<br>- **강지연**: 로그인 폼 UI, 입력값 검증 및 오류 메시지 출력<br>- **강명주**: 메인 GNB/Footer 구현, 상품 카드 레이아웃<br>- **김범규**: 상품 정보/이미지 배치, 옵션 선택 UI |
+| **수 (Day 2)** | **UI 구조<br>& 퍼블리싱** | **전원** | - **전준성**: 구매자/판매자 회원가입 탭 UI, 입력 폼 레이아웃<br>- **강지연**: 로그인 폼 UI, 입력값 검증 및 오류 메시지 출력<br>- **강명주**: 메인 GNB/Footer 구현, 상품 목록 카드 레이아웃<br>- **김범규**: 상품 정보/이미지 배치, 옵션 선택 UI |
 | **목 (Day 3)** | **기능 구현<br>(API 연동)** | **전준성** | - 아이디 중복 확인 API 연동 및 실시간 결과 피드백<br>- 비밀번호/전화번호 유효성 검사 적용 |
 | | | **강지연** | - 로그인 API 연동 및 JWT 인증 처리<br>- 로그인 실패 시 에러 처리 및 UX 개선 (focus 이동)<br>- 에러 페이지 구현 및 버튼 클릭 시 페이지 이동 로직 구현|
-| | | **강명주** | - 상품 목록 조회 API(GET) 연동 및 동적 데이터 렌더링 |
+| | | **강명주** | - 상품 목록 조회 API(GET) 연동 및 동적 데이터 렌더링, 상품 검색 시스템 구축, 상품리스트 클릭시 상세페이지 이동 로직 구현 |
 | | | **김범규** | - 상품 상세 정보 조회 API 연동 및 데이터 바인딩 |
 | **금 (Day 4)** | **심화 로직<br>& 고도화** | **전준성** | - 이용약관 동의 체크박스 로직 (필수 체크 확인)<br>- 최종 회원가입 요청(POST) 및 완료 후 페이지 이동 |
 | | | **강지연** | - 로그인 페이지 기능 점검<br>- 프로젝트 정리 |
-| | | **강명주** | - 상품 검색 기능 UI 연동 및 데이터 로딩 처리 |
+| | | **강명주** | - 마이페이지 드롭다운 기능 구현, 로그인 안내 모달 로직 단일화, 업무 코드 중복 제거를 위한 헤더/푸터 분리작업 |
 | | | **김범규** | - **[Logic]** 수량 변경(+/-)에 따른 총 금액 실시간 계산<br>- 재고 수량 초과 시 버튼 비활성화(disabled) 처리 |
 | **토 (Day 5)** | **배포<br>& QA** | **전원** | - 각 기능 브랜치(`feat/xxx`) → `dev` 브랜치 병합 (Conflict 해결)<br>- 전체 페이지 링크 연결 및 플로우 테스트<br>- **GitHub Pages 배포 및 Lighthouse 성능 측정/최적화** |
 ```mermaid
@@ -162,7 +162,7 @@ gantt
 | :---: | :---: | :--- |
 | **전준성** | **Team Leader / FE** | **총괄 및 회원가입 시스템**<br>- 프로젝트 기획 및 Git Flow (PR, Conflict) 총괄 관리<br>- 실시간 아이디 중복 확인 및 유효성 검사 로직 구축<br>- 약관 동의 검증 및 회원가입 API 연동 |
 | **강지연** | **FE** | **로그인 및 권한 관리**<br>- UI/UX 디자인 가이드 제작 (피그마 대응)<br>- JWT 토큰 기반 로그인 및 사용자 인증 상태 관리<br>- 로그인 실패 시 자동 Focus 등 UX 고도화 <br>-서버오류시 error페이지 이동 |
-| **강명주** | **FE** | **메인 목록 및 GNB 시스템**<br>- 상품 목록 API 연동 및 그리드 레이아웃 구현<br>- 공통 GNB(상단바) 드롭다운 및 로그아웃 기능<br>- API 데이터 파싱 및 에러 핸들링 지원 |
+| **강명주** | **FE** | **메인 목록 및 GNB 시스템**<br>- 상품 목록 API 연동 및 그리드 레이아웃 구현<br>- 검색 엔진 고도화<br>-  GNB/푸터 컴포넌트화 및 비동기 레이아웃 로드 로직 구현<br>- API 데이터 파싱 및 에러 핸들링 지원 |
 | **김범규** | **FE** | **상품 상세 및 주문 로직**<br>- 상품 상세 정보 렌더링 및 동적 데이터 바인딩<br>- **실시간 총 결제 금액 계산 시스템** 구축<br>- 재고 수량 연동 및 구매 제한 로직 구현 |
 
 <br>
@@ -247,6 +247,8 @@ gantt
 **강지연 (FE)**
 >개인 작업에서만 사용하던 GitHub를 이번 프로젝트에서 팀 협업에 직접 사용해 보면서, 배운 내용을 실제 프로젝트에 적용해 하나의 결과물을 완성할 수 있었던 점에  많은걸 배운 느낌이고 뿌듯함을 느꼈습니다
 
-[팀원 이름]
+**강명주 (FE)**
+> **"이론의 모호함을 실무의 확신으로 바꾼 첫 번째 여"**
+> 자바스크립트를 활용한 실무 구현이 처음이었기에 초기에는 막연한 두려움이 있었으나, 직면한 문제들을 단계별로 추적하고 해결하며 개발의 즐거움을 체감했습니다. 특히 이론 수업 시 혼란스러웠던 '변수 선언을 통한 상태 관리(State Management)'와 '함수 호출 및 매개변수 전달을 통한 실행 로직 제어'의 개념이, 실제 데이터가 화면에 렌더링되는 과정을 거치며 새롭게 입체적으로 이해되었습니다. 이 경험은 단순한 코드 작성을 넘어 프로그램의 내부 동작 원리를 더 깊이 탐구하고 싶게 만드는 강력한 동기부여가 되었습니다. 그리고 첫 팀 프로젝트를 통해 팀원 간의 상호 신뢰와 전문성 존중의 중요성을 배웠습니다. 그리고 코드 중복 여부를 사전에 조금 더 꼼꼼히 검토하고 로직을 공통화'하는 과정이 개발 효율성을 올릴 수 있겠다고 느꼈습니다. 서로의 작업 영역을 공유하고 유연하게 업무를 분담하는 커뮤니케이션 과정은 개인의 성장을 넘어 팀의 시너지를 만들어내는 소중한 경험이었습니다.
 
 (팀원의 소감을 여기에 작성하거나 생략 가능)
