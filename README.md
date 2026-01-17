@@ -23,7 +23,7 @@
         <th>팀원 OOO</th>
     </tr>
     <tr>
-        <td align="center"><img src="https://via.placeholder.com/100" width="100%"></td>
+        <td align="center"><img src="https://github.com/user-attachments/assets/e1503812-210d-4009-abb0-0d2dc9751648" width="100%"></td>
         <td align="center"><img src="https://via.placeholder.com/100" width="100%"></td>
         <td align="center"><img src="https://via.placeholder.com/100" width="100%"></td>
       <td align="center"><img src="https://via.placeholder.com/100" width="100%"></td>
