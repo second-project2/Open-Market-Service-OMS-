@@ -1,4 +1,3 @@
-/* 헤더 스타일 */
 header {
     width: 100%;
     padding: 26px 0;
@@ -69,11 +68,18 @@ header {
     cursor: pointer;
 }
 
-/* 드롭다운 메뉴 스타일 */
+.menu-item img[alt="cart"] {
+    transition: all 0.3s ease; 
+}
+
+.menu-item.is-logged-in:hover img[alt="cart"] {
+    content: url("../assets/icons/icon-shopping-cart-2.svg"); 
+}
+
 .dropdown-menu {
-    display: none; /* 1. 일단 숨깁니다 */
+    display: none; 
     position: absolute;
-    top: 100%; /* 부모 버튼 바로 아래에 위치 */
+    top: 100%; 
     left: 50%;
     transform: translateX(-50%);
     width: 120px;
@@ -85,7 +91,6 @@ header {
     z-index: 100;
 }
 
-/* 클래스가 추가되었을 때만 보이게 함 */
 .dropdown-menu.show {
     display: block;
 }
@@ -107,7 +112,6 @@ header {
     color: var(--color-gray-dark);
 }
 
-/* 푸터 스타일 */
 .footer {
     width: 100%;
     height: 298px; 
@@ -131,7 +135,7 @@ header {
 
 .footer-links ul {
     display: flex;
-    gap: 14px; /* 사이 줄 인가?*/
+    gap: 14px; 
 }
 
 .footer-links a {
@@ -145,7 +149,6 @@ header {
     transition: font-weight 0.2s;
 }
 
-/* SNS 아이콘 */
 .social-icons {
     display: flex;
     gap: 14px;
@@ -207,7 +210,6 @@ header {
         height: 28px;
     }
 
-    /* 푸터 스타일 */
     .footer {
         height: auto; 
         padding: 40px 0;
@@ -232,11 +234,6 @@ header {
         gap: 10px;
     }
 
-    /* 모바일에서 보기 싫은 세로줄(|) 숨기기 (선택 사항) */
-    /* .footer-links li:nth-child(even) {
-        display: none; 
-    } */
-
     .footer-divider {
         margin: 20px 0;
     }
@@ -252,72 +249,72 @@ header {
 }
 
 .modal-backdrop {
-  position: fixed;
-  inset: 0;
-  display: none; /* 기본 숨김 */
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.35);
-  z-index: 999;
+    position: fixed;
+    inset: 0;
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 999;
 }
 
 .modal-backdrop.show {
-  display: flex; /* show 붙으면 보임 */
+    
 }
 
 .modal {
-  width: 360px;
-  height: 200px;
-  background: #fff;
-  border-radius: 10px;
-  padding: 24px;
-  position: relative;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 360px;
+    height: 200px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 24px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .modal-close {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  border: 0;
-  background: transparent;
-  font-size: 20px;
-  cursor: pointer;
-  color: var(--color-gray-dark);
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    border: 0;
+    background: transparent;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--color-gray-dark);
 }
 
 .modal-text {
-  text-align: center;
-  font-size: 14px;
-  line-height: 22px;
-  margin-top: 24px;
-  color: var(--color-black);
+    text-align: center;
+    font-size: 14px;
+    line-height: 22px;
+    margin-top: 24px;
+    color: var(--color-black);
 }
 
 .modal-actions {
-  margin-top: 24px;
-  display: flex;
-  justify-content: center;
-  gap: 12px;
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
 }
 
 .modal-btn {
-  width: 150px;
-  height: 50px;
-  border-radius: 5px;
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
 }
 
 .modal-btn.cancel {
-  background: #fff;
-  border: 1px solid var(--color-gray-medium);
-  color: var(--color-gray-dark);
+    background: #fff;
+    border: 1px solid var(--color-gray-medium);
+    color: var(--color-gray-dark);
 }
 
 .modal-btn.confirm {
-  background: var(--color-primary);
-  border: 0;
-  color: #fff;
+    background: var(--color-primary);
+    border: 0;
+    color: #fff;
 }
