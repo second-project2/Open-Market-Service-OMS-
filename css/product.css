@@ -1,13 +1,8 @@
-/* css/product.css (반응형 적용 최종본 전체 교체) */
-
-/* =========================
-   Layout
-========================= */
 .product-wrap {
   width: 100%;
   max-width: 1280px;
   margin: 80px auto;
-  padding: 0 20px; /* ✅ 작은 화면에서 여백 확보 */
+  padding: 0 20px; 
   box-sizing: border-box;
 }
 
@@ -18,9 +13,7 @@
   align-items: start;
 }
 
-/* =========================
-   Product Image
-========================= */
+
 .product-image {
   width: 600px;
   height: 600px;
@@ -43,9 +36,6 @@
   background: var(--color-gray-light);
 }
 
-/* =========================
-   Product Info (Right)
-========================= */
 .seller {
   font-size: 14px;
   color: var(--color-gray-dark);
@@ -92,9 +82,6 @@
   margin-bottom: 14px;
 }
 
-/* =========================
-   Quantity Control
-========================= */
 .qty-row {
   display: inline-flex;
   align-items: center;
@@ -129,9 +116,6 @@
   color: var(--color-black);
 }
 
-/* =========================
-   Total Price Area
-========================= */
 .total-row {
   display: flex;
   justify-content: space-between;
@@ -173,9 +157,6 @@
   font-size: 36px;
 }
 
-/* =========================
-   Buttons
-========================= */
 .btn-row {
   display: flex;
   gap: 12px;
@@ -208,9 +189,6 @@
   color: var(--color-gray-dark);
 }
 
-/* =========================
-   Tabs
-========================= */
 .tabs {
   margin-top: 80px;
   display: grid;
@@ -233,9 +211,6 @@
   border-bottom-color: var(--color-primary);
 }
 
-/* =========================
-   Modal (show 기준)
-========================= */
 .modal-backdrop {
   position: fixed;
   inset: 0;
@@ -307,82 +282,6 @@
   color: #fff;
 }
 
-/* =========================
-   Footer (기존 유지)
-========================= */
-.footer {
-  width: 100%;
-  height: 298px;
-  background-color: var(--color-gray-light);
-  display: flex;
-  align-items: center;
-  padding: 60px 0 63px 0;
-}
-
-.footer .container {
-  width: 1280px;
-  margin: 0 auto;
-}
-
-.footer-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-.footer-links ul {
-  display: flex;
-  gap: 14px;
-}
-
-.footer-links a {
-  font-size: 14px;
-  color: #000000;
-  text-decoration: none;
-}
-
-.footer-links a.bold {
-  font-weight: 700;
-}
-
-.social-icons {
-  display: flex;
-  gap: 14px;
-}
-
-.social-icons img {
-  width: 32px;
-  height: 32px;
-}
-
-.footer-divider {
-  border: none;
-  border-top: 1px solid var(--color-gray-medium);
-  margin-bottom: 30px;
-}
-
-.footer-bottom {
-  font-size: 14px;
-  line-height: 24px;
-  color: var(--color-gray-dark);
-}
-
-.footer-bottom strong {
-  display: block;
-  margin-bottom: 10px;
-  font-weight: 700;
-}
-
-.footer-bottom address {
-  font-style: normal;
-}
-
-/* =========================
-   ✅ Responsive
-========================= */
-
-/* 태블릿 이하: 2열 → 1열 전환 */
 @media (max-width: 1024px) {
   .product-wrap {
     margin: 50px auto;
@@ -396,9 +295,7 @@
   .product-image {
     width: 100%;
     height: auto;
-    aspect-ratio: 1 / 1; /* ✅ 600 고정 대신 정사각 유지 */
-  }
-
+    aspect-ratio: 1 / 1;
   .buy-now {
     width: 100%;
   }
@@ -417,7 +314,6 @@
   }
 }
 
-/* 모바일: 글자/간격 살짝 압축 */
 @media (max-width: 480px) {
   .title {
     font-size: 22px;
@@ -445,11 +341,7 @@
     max-width: 360px;
   }
 }
-/* =========================
-   반응형 최소 적용 (웹 창 축소 대응)
-   ========================= */
 
-/* 1280 이하로 줄어들 때: 고정폭 1280 -> 화면폭에 맞추기 */
 @media (max-width: 1280px) {
   .product-wrap {
     width: 100%;
@@ -465,11 +357,11 @@
   .product-image {
     width: 100%;
     height: auto;
-    aspect-ratio: 1 / 1; /* 1:1 유지 */
+    aspect-ratio: 1 / 1; 
   }
 }
 
-/* 900 이하: 2열 -> 1열 (이미지 위, 정보 아래) */
+
 @media (max-width: 900px) {
   .product-detail {
     grid-template-columns: 1fr;
