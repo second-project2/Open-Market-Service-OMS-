@@ -1,8 +1,14 @@
-/* css/product.css (전체 교체) */
+/* css/product.css (반응형 적용 최종본 전체 교체) */
 
+/* =========================
+   Layout
+========================= */
 .product-wrap {
-  width: 1280px;
+  width: 100%;
+  max-width: 1280px;
   margin: 80px auto;
+  padding: 0 20px; /* ✅ 작은 화면에서 여백 확보 */
+  box-sizing: border-box;
 }
 
 .product-detail {
@@ -12,7 +18,9 @@
   align-items: start;
 }
 
-/* 600x600 이미지 */
+/* =========================
+   Product Image
+========================= */
 .product-image {
   width: 600px;
   height: 600px;
@@ -31,7 +39,13 @@
   object-fit: cover;
 }
 
-/* 우측 텍스트 */
+.product-image.no-image {
+  background: var(--color-gray-light);
+}
+
+/* =========================
+   Product Info (Right)
+========================= */
 .seller {
   font-size: 14px;
   color: var(--color-gray-dark);
@@ -43,6 +57,7 @@
   font-weight: 700;
   color: var(--color-black);
   margin-bottom: 14px;
+  word-break: keep-all;
 }
 
 .price {
@@ -77,7 +92,9 @@
   margin-bottom: 14px;
 }
 
-/* 수량 */
+/* =========================
+   Quantity Control
+========================= */
 .qty-row {
   display: inline-flex;
   align-items: center;
@@ -95,6 +112,11 @@
   cursor: pointer;
 }
 
+.qty-btn:disabled {
+  cursor: not-allowed;
+  color: var(--color-gray-medium);
+}
+
 .qty {
   width: 50px;
   height: 50px;
@@ -107,24 +129,30 @@
   color: var(--color-black);
 }
 
-/* 총액 */
+/* =========================
+   Total Price Area
+========================= */
 .total-row {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   margin: 18px 0 22px;
+  gap: 16px;
 }
 
 .total-label {
   font-size: 16px;
   font-weight: 700;
   color: var(--color-black);
+  white-space: nowrap;
 }
 
 .total-right {
   display: flex;
   gap: 12px;
   align-items: baseline;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .total-qty {
@@ -145,7 +173,9 @@
   font-size: 36px;
 }
 
-/* 버튼 */
+/* =========================
+   Buttons
+========================= */
 .btn-row {
   display: flex;
   gap: 12px;
@@ -178,7 +208,9 @@
   color: var(--color-gray-dark);
 }
 
-/* 탭 */
+/* =========================
+   Tabs
+========================= */
 .tabs {
   margin-top: 80px;
   display: grid;
@@ -201,3 +233,259 @@
   border-bottom-color: var(--color-primary);
 }
 
+/* =========================
+   Modal (show 기준)
+========================= */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 999;
+}
+
+.modal-backdrop.show {
+  display: flex;
+}
+
+.modal {
+  width: 360px;
+  height: 200px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 24px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  border: 0;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--color-gray-dark);
+}
+
+.modal-text {
+  text-align: center;
+  font-size: 14px;
+  line-height: 22px;
+  margin-top: 24px;
+  color: var(--color-black);
+}
+
+.modal-actions {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.modal-btn {
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.modal-btn.cancel {
+  background: #fff;
+  border: 1px solid var(--color-gray-medium);
+  color: var(--color-gray-dark);
+}
+
+.modal-btn.confirm {
+  background: var(--color-primary);
+  border: 0;
+  color: #fff;
+}
+
+/* =========================
+   Footer (기존 유지)
+========================= */
+.footer {
+  width: 100%;
+  height: 298px;
+  background-color: var(--color-gray-light);
+  display: flex;
+  align-items: center;
+  padding: 60px 0 63px 0;
+}
+
+.footer .container {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.footer-links ul {
+  display: flex;
+  gap: 14px;
+}
+
+.footer-links a {
+  font-size: 14px;
+  color: #000000;
+  text-decoration: none;
+}
+
+.footer-links a.bold {
+  font-weight: 700;
+}
+
+.social-icons {
+  display: flex;
+  gap: 14px;
+}
+
+.social-icons img {
+  width: 32px;
+  height: 32px;
+}
+
+.footer-divider {
+  border: none;
+  border-top: 1px solid var(--color-gray-medium);
+  margin-bottom: 30px;
+}
+
+.footer-bottom {
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--color-gray-dark);
+}
+
+.footer-bottom strong {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.footer-bottom address {
+  font-style: normal;
+}
+
+/* =========================
+   ✅ Responsive
+========================= */
+
+/* 태블릿 이하: 2열 → 1열 전환 */
+@media (max-width: 1024px) {
+  .product-wrap {
+    margin: 50px auto;
+  }
+
+  .product-detail {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .product-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1; /* ✅ 600 고정 대신 정사각 유지 */
+  }
+
+  .buy-now {
+    width: 100%;
+  }
+
+  .cart {
+    width: 100%;
+  }
+
+  .btn-row {
+    flex-direction: column;
+  }
+
+  .tabs {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 8px;
+  }
+}
+
+/* 모바일: 글자/간격 살짝 압축 */
+@media (max-width: 480px) {
+  .title {
+    font-size: 22px;
+  }
+
+  .price strong {
+    font-size: 30px;
+  }
+
+  .total-price strong {
+    font-size: 30px;
+  }
+
+  .tab {
+    font-size: 14px;
+    height: 52px;
+  }
+
+  .btn {
+    height: 56px;
+  }
+
+  .modal {
+    width: calc(100% - 40px);
+    max-width: 360px;
+  }
+}
+/* =========================
+   반응형 최소 적용 (웹 창 축소 대응)
+   ========================= */
+
+/* 1280 이하로 줄어들 때: 고정폭 1280 -> 화면폭에 맞추기 */
+@media (max-width: 1280px) {
+  .product-wrap {
+    width: 100%;
+    padding: 0 24px;
+    box-sizing: border-box;
+  }
+
+  .product-detail {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .product-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1; /* 1:1 유지 */
+  }
+}
+
+/* 900 이하: 2열 -> 1열 (이미지 위, 정보 아래) */
+@media (max-width: 900px) {
+  .product-detail {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-row {
+    flex-direction: column;
+  }
+
+  .buy-now,
+  .cart {
+    width: 100%;
+  }
+
+  .tabs {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 8px;
+  }
+}
