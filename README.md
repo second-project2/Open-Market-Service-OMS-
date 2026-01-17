@@ -18,19 +18,21 @@
 <table>
     <tr>
         <th>팀장 OOO</th>
-        <th>팀원 OOO</th>
+        <th>팀원 강지연</th>
         <th>팀원 OOO</th>
         <th>팀원 OOO</th>
     </tr>
     <tr>
         <td align="center"><img src="https://via.placeholder.com/100" width="100%"></td>
-        <td align="center"><img src="https://via.placeholder.com/100" width="100%"></td>
+        <td align="center">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8Br-BZrPih1vBxXY3CYfqiZ0SksqzH261o9Jw0OfN5iu2GWTowzCbZA-sTqzxaCaoy33U5p8XpiZ2T40pIXF8SqaDfgHlj8XSjr6kBQ&s=10" width="150px" />
+</td>
         <td align="center"><img src="https://via.placeholder.com/100" width="100%"></td>
       <td align="center"><img src="https://via.placeholder.com/100" width="100%"></td>
     </tr>
     <tr>
         <td align="center"><b>총괄 / 메인 페이지</b></td>
-        <td align="center"><b>회원가입 / 로그인</b></td>
+        <td align="center"><b>로그인/error페이지</b></td>
         <td align="center"><b>상품 상세 / 장바구니</b></td>
       <td align="center"><b>상품 상세 / 장바구니</b></td>
     </tr>
