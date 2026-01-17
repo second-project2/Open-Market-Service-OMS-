@@ -1,31 +1,36 @@
-# 🛒 (7팀) 지역기반 오픈마켓 서비스 HODU (호두)
+# 오픈마켓 플랫폼 HODU (호두)
+> **Vanilla JS 기반의 MPA 아키텍처 및 REST API 연동 커머스 프로젝트**
 
-## 1. 목표와 기능
+<br>
 
-### 1.1 목표
-- **바닐라 JS(Vanilla JS)를 활용한 동적 웹 애플리케이션 구현:** 프레임워크 없이 순수 자바스크립트로 SPA(Single Page Application) 구조를 이해하고 구현합니다.
-- **실제 백엔드 API와의 통신:** Open Market API 명세서를 분석하고, 비동기 통신(`fetch`)을 통해 실제 데이터를 주고받으며 서비스를 구축합니다.
-- **Git Flow 기반의 협업:** 기능별 브랜치 관리, Pull Request, 코드 리뷰, 그리고 Merge Conflict 해결 과정을 통해 팀 협업 능력을 향상시킵니다.
-- **사용자 중심의 UI/UX:** 회원가입부터 상품 구매까지, 사용자가 편리하게 이용할 수 있는 직관적이고 반응형인 인터페이스를 제공합니다.
+## 1. 프로젝트 개요
 
-### 1.2 기능
-- **회원 관리:** 구매자/판매자 회원가입, 로그인, 아이디 중복 확인(실시간 검증), 유효성 검사, JWT 토큰 관리
-- **상품 관리:** 상품 목록 조회(무한 스크롤/페이지네이션), 상품 상세 보기, 상품 검색
-- **주문/결제:** 장바구니 담기, 수량 조절, 선택 상품 삭제, 최종 결제(API 연동)
-- **판매자 센터:** 상품 등록, 수정, 삭제, 판매 현황 대시보드 (추후 확장 예정)
+### 1.1 프로젝트 목표
+* **Vanilla JS 기반 MPA 아키텍처 설계**: 프레임워크 없이 순수 자바스크립트로 다중 페이지(MPA) 간의 유기적인 라우팅 및 데이터 전달 구조를 확립합니다.
+* **REST API 기반 실시간 데이터 연동**: `fetch` API와 `async/await`를 활용하여 백엔드 서버와 비동기 통신을 구현하고, 실제 커머스 데이터를 실시간으로 핸들링합니다.
+* **사용자 중심의 인터랙티브 UX 구현**: 유효성 검사 피드백, 자동 Focus 이벤트, 실시간 가격 계산 시스템 등 세밀한 인터랙션으로 사용자 편의성을 극대화합니다.
+* **Git Flow 기반 체계적 협업**: Organization 환경에서 Issue 발행 및 PR 기반의 코드 리뷰 프로세스를 준수하며 팀 프로젝트 운영 능력을 배양합니다.
+
+### 1.2 핵심 기능
+* **인증 시스템**: 구매자/판매자 회원가입(실시간 중복 확인), JWT 기반 로그인 및 접근 권한 제어.
+* **상품 관리**: 메인 상품 리스트 동적 렌더링, URL 파라미터를 활용한 상품 상세 정보 로드.
+* **주문 로직**: 실시간 수량 조절 및 결제 금액 계산 시스템, 재고 기반 버튼 활성화 제어.
+* **공통 UI**: 로그인 상태에 따른 동적 GNB(상단바) 및 드롭다운 메뉴 시스템.
+
+<br>
 
 ### 1.3 팀 구성
 <table>
     <tr>
-        <th>팀장 OOO</th>
+        <th>팀장 전준성</th>
         <th>팀원 강지연</th>
         <th>팀원 OOO</th>
         <th>팀원 OOO</th>
     </tr>
     <tr>
-        <td align="center"><img src="https://via.placeholder.com/100" width="100%"></td>
+        <td align="center"><img src="https://github.com/user-attachments/assets/e1503812-210d-4009-abb0-0d2dc9751648" width="150px" style="object-fit: cover;"></td>
         <td align="center">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8Br-BZrPih1vBxXY3CYfqiZ0SksqzH261o9Jw0OfN5iu2GWTowzCbZA-sTqzxaCaoy33U5p8XpiZ2T40pIXF8SqaDfgHlj8XSjr6kBQ&s=10" width="150px" />
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8Br-BZrPih1vBxXY3CYfqiZ0SksqzH261o9Jw0OfN5iu2GWTowzCbZA-sTqzxaCaoy33U5p8XpiZ2T40pIXF8SqaDfgHlj8XSjr6kBQ&s=10" width="150px" style="object-fit: cover;" />
 </td>
         <td align="center"><img src="https://via.placeholder.com/100" width="100%"></td>
       <td align="center"><img src="https://via.placeholder.com/100" width="100%"></td>
@@ -38,7 +43,7 @@
     </tr>
     <tr>
         <td align="center"><a href="https://github.com/팀장아이디">@팀장아이디</a></td>
-        <td align="center"><a href="https://github.com/본인아이디">@tndjqtlfh</a></td>
+        <td align="center"><a href="https://github.com/본인아이디">@본인아이디</a></td>
         <td align="center"><a href="https://github.com/팀원아이디">@팀원아이디</a></td>
       <td align="center"><a href="https://github.com/팀원아이디">@팀원아이디</a></td>
     </tr>
@@ -56,11 +61,11 @@
 - **Collaboration:** Notion, Discord
 
 ### 2.2 배포 URL
-- **Service URL:** [https://본인아이디.github.io/레포지토리명](https://본인아이디.github.io/레포지토리명)
+- **Service URL:** https://second-project2.github.io/Open-Market-Service-OMS-/
 - **Test Account:**
   ```text
-  ID : buyer123 (구매자) / seller123 (판매자)
-  PW : hodu1234!
+  ID : qwer1  
+  PW : qwerqwer1!
 ### 2.3 프로젝트 구조
 GitHub Actions 배포 설정에 따라 html 폴더를 루트(root)로 하여 배포됩니다.
 ```
@@ -110,55 +115,67 @@ GitHub Actions 배포 설정에 따라 html 폴더를 루트(root)로 하여 배
 날짜,구분,담당자,상세 개발 내용
 ### 📝 상세 업무 분장표 (Daily Scrum)
 
+### 📝 상세 업무 분장표 (Daily Scrum)
+
 | 날짜 | 구분 | 담당자 | 상세 개발 내용 |
 | :---: | :---: | :---: | :--- |
 | **화 (Day 1)** | **협업 세팅<br>& 학습** | **ALL** | - 팀명 결정 및 GitHub Organization 생성<br>- Git Flow 학습 (Issue 발행, Kanban 관리, PR, Merge)<br>- 초기 세팅: 레포지토리 생성 및 폴더 구조 확립 |
-| **수 (Day 2)** | **UI 구조<br>& 퍼블리싱** | **전원** | - **전준성**: 회원가입 탭 UI, 입력 폼 레이아웃<br>- **강지연**: 로그인 폼 UI, 입력값 검증 및 오류 메시지 출력<br>- **강명주**: 목록(Index) GNB/Footer, 카드 레이아웃<br>- **김범규**: 상세(Product) 정보 배치, 옵션 UI |
+| **수 (Day 2)** | **UI 구조<br>& 퍼블리싱** | **전원** | - **전준성**: 회원가입 탭 UI, 입력 폼 레이아웃<br>- **강지연**: 로그인 폼 UI, 경고 메시지 영역<br>- **강명주**: 목록(Index) GNB/Footer, 카드 레이아웃<br>- **김범규**: 상세(Product) 정보 배치, 옵션 UI |
 | **목 (Day 3)** | **기능 구현<br>(API 연동)** | **전준성** | - 아이디 중복 확인 API 연동 (실시간 피드백)<br>- 비밀번호/전화번호 정규식 유효성 검사 적용 |
-| | | **강지연** | - 로그인 API 연동 및 JWT 인증 처리<br- 로그인 실패 시 에러 처리 및 UX 개선 (focus 이동)<br>-- 에러 페이지 구현 및 버튼 클릭 시 페이지 이동 로직 구현
- |
+| | | **강지연** | - 로그인 API 연동 및 JWT 토큰 로컬스토리지 저장<br>- [UX] 로그인 실패 시 ID/PW 입력창 초기화 및 focus 이동 |
 | | | **강명주** | - 상품 목록 조회 API (GET) 연동<br>- 서버 데이터 기반 상품 카드 동적 렌더링 |
 | | | **김범규** | - 상품 상세 정보 조회 API 연동<br>- 상품 이미지, 판매자명, 가격 데이터 바인딩 |
 | **금 (Day 4)** | **심화 로직<br>& 고도화** | **전준성** | - 이용약관 동의 체크박스 로직 (필수 체크 확인)<br>- 최종 회원가입 요청(POST) 및 완료 후 페이지 이동 |
-| | | **강지연** | - 로그인페이지 기능 점검<br>- 프로젝트 정리 |
+| | | **강지연** | - 로그인 상태에 따른 GNB 버튼 변경 (로그인/로그아웃)<br>- 비로그인 시 장바구니 접근 차단 (로그인 모달 호출) |
 | | | **강명주** | - 상품 검색 기능 UI 연동<br>- 데이터 로딩 중 스켈레톤 UI 또는 로딩 처리 |
 | | | **김범규** | - [Logic] 수량 변경 (+/-)에 따른 총 금액 실시간 계산<br>- 재고 수량 초과 시 버튼 비활성화(disabled) 처리 |
 | **토 (Day 5)** | **배포<br>& QA** | **ALL** | - 각 브랜치(feat/xxx) → dev 브랜치 병합 (Conflict 해결)<br>- 전체 페이지 링크 연결 및 플로우 테스트<br>- GitHub Pages 배포 및 최종 리드미 작성 |
 
 ```mermaid
 gantt
-    title 오픈마켓 HODU 프로젝트 일정 (5 Days Sprint)
+    title 오픈마켓 HODU 프로젝트 일정 (2026-01-13 ~ 01-17)
     dateFormat  YYYY-MM-DD
     axisFormat  %a (%m/%d)
     
-    section Day 1 (화) : 협업 세팅
-    팀 빌딩 및 Git 학습 (ALL)           :crit, day1, 2024-01-02, 1d
-    레포지토리 구조 세팅 (ALL)          :day1, 2024-01-02, 1d
+    section Day 1 (화): 협업 세팅
+    팀 빌딩 및 Git/GitHub 학습 (ALL)     :crit, day1_1, 2026-01-13, 1d
+    프로젝트 초기 구조 세팅 (ALL)       :day1_2, 2026-01-13, 1d
 
-    section Day 2 (수) : UI 퍼블리싱
-    회원가입 폼 UI (전준성)             :day2_1, 2024-01-03, 1d
-    로그인 폼 UI (강지연)               :day2_2, 2024-01-03, 1d
-    메인/공통 UI (강명주)               :day2_3, 2024-01-03, 1d
-    상세페이지 UI (김범규)              :day2_4, 2024-01-03, 1d
+    section Day 2 (수): UI 퍼블리싱
+    회원가입 탭 & 폼 UI (전준성)         :day2_1, 2026-01-14, 1d
+    로그인 폼 & 에러 영역 UI (강지연)    :day2_2, 2026-01-14, 1d
+    GNB/Footer & 목록 UI (강명주)       :day2_3, 2026-01-14, 1d
+    상품 상세 & 옵션 UI (김범규)         :day2_4, 2026-01-14, 1d
 
-    section Day 3 (목) : API 연동
-    아이디 중복확인 API (전준성)        :day3_1, 2024-01-04, 1d
-    로그인 API & 토큰 (강지연)          :day3_2, 2024-01-04, 1d
-    상품 목록 조회 API (강명주)         :day3_3, 2024-01-04, 1d
-    상품 상세 조회 API (김범규)         :day3_4, 2024-01-04, 1d
+    section Day 3 (목): API 연동
+    중복확인 & 유효성 검사 (전준성)      :day3_1, 2026-01-15, 1d
+    로그인 API & 토큰 관리 (강지연)      :day3_2, 2026-01-15, 1d
+    상품 목록 조회 API (강명주)         :day3_3, 2026-01-15, 1d
+    상품 상세 정보 바인딩 (김범규)       :day3_4, 2026-01-15, 1d
 
     section Day 4 (금) : 심화 로직
     약관 동의 & 가입 요청 (전준성)      :day4_1, 2024-01-05, 1d
-    기능 점검 및 정리 (강지연)       :day4_2, 2024-01-05, 1d
+    GNB & 접근 제어 모달 (강지연)       :day4_2, 2024-01-05, 1d
     검색 & 스켈레톤 UI (강명주)         :day4_3, 2024-01-05, 1d
     수량/가격 계산 로직 (김범규)        :day4_4, 2024-01-05, 1d
 
-    section Day 5 (토) : 배포 & QA
-    코드 병합 & 충돌 해결 (ALL)         :crit, day5_1, 2024-01-06, 1d
-    최종 QA & 배포 (ALL)               :day5_2, after day5_1, 0d
+    section Day 5 (토): 마무리
+    코드 통합 및 충돌 해결 (ALL)        :crit, day5_1, 2026-01-17, 1d
+    Lighthouse 측정 및 최종 배포 (ALL)   :day5_2, 2026-01-17, 1d
 ```
-### 4. 트러블 슈팅 (Troubleshooting)
-4.1 Git Merge Conflict 해결
+###  4. 역할 분담 (R&R)
+
+| 이름 | 역할 | 담당 파트 및 상세 업무 |
+| :---: | :---: | :--- |
+| **전준성** | **Team Leader / FE** | **총괄 및 회원가입 시스템**<br>- 프로젝트 기획 및 Git Flow (PR, Conflict) 총괄 관리<br>- 실시간 아이디 중복 확인 및 유효성 검사 로직 구축<br>- 약관 동의 검증 및 회원가입 API 연동 |
+| **강지연** | **FE** | **로그인 및 권한 관리**<br>- UI/UX 디자인 가이드 제작 (피그마 대응)<br>- JWT 토큰 기반 로그인 및 사용자 인증 상태 관리<br>- 로그인 실패 시 자동 Focus 등 UX 고도화 |
+| **강명주** | **FE** | **메인 목록 및 GNB 시스템**<br>- 상품 목록 API 연동 및 그리드 레이아웃 구현<br>- 공통 GNB(상단바) 드롭다운 및 로그아웃 기능<br>- API 데이터 파싱 및 에러 핸들링 지원 |
+| **김범규** | **FE** | **상품 상세 및 주문 로직**<br>- 상품 상세 정보 렌더링 및 동적 데이터 바인딩<br>- **실시간 총 결제 금액 계산 시스템** 구축<br>- 재고 수량 연동 및 구매 제한 로직 구현 |
+
+<br>
+
+### 5. 트러블 슈팅 (Troubleshooting)
+5.1 Git Merge Conflict 해결
 문제 상황: dev 브랜치에 각 팀원의 기능(feat/signup, feat/login)을 병합하는 과정에서 common.css 및 index.html의 링크 연결 부분에서 충돌(Conflict)이 발생했습니다.
 
 해결 과정:
@@ -169,7 +186,7 @@ VS Code의 Merge Editor 기능을 활용하여 충돌 지점을 시각적으로 
 
 이후 git pull origin dev를 통해 로컬 브랜치를 최신 상태로 유지하는 규칙을 정립했습니다.
 
-4.2 비동기 통신 에러 핸들링 (Async/Await)
+5.2 비동기 통신 에러 핸들링 (Async/Await)
 문제 상황: 아이디 중복 확인 시, 서버에서 404 또는 400 에러를 반환할 때 스크립트가 멈추거나 사용자에게 아무런 피드백이 없는 문제가 있었습니다.
 
 해결 과정:
@@ -178,12 +195,12 @@ try-catch 구문을 도입하여 네트워크 에러를 포착했습니다.
 
 API가 반환하는 에러 메시지(json.message 또는 json.error)를 파싱하여, alert 창이나 입력 필드 하단의 텍스트로 사용자에게 구체적인 실패 원인을 안내하도록 로직을 개선했습니다.
 
-4.3 배포 경로 문제 (GitHub Actions)
+5.3 배포 경로 문제 (GitHub Actions)
 문제 상황: GitHub Actions로 배포 후, CSS와 JS 파일이 404 Not Found로 뜨는 현상이 발생했습니다.
 
 해결 과정: 프로젝트 구조상 소스 코드가 html 폴더 내부에 위치해 있었으나, 배포 설정은 루트를 바라보고 있었습니다. Workflow 파일(.yml)에서 업로드 경로를 path: 'html'로 수정하여 정상적으로 리소스를 불러오도록 수정했습니다.
 
-### 5. 개발하며 느낀점
+### 6. 개발하며 느낀점
 [본인 이름]
 
 처음에는 API 문서를 보고 막 막막했지만, 하나씩 console.log를 찍어가며 서버와 통신에 성공했을 때의 짜릿함을 잊을 수 없습니다. 특히 회원가입 폼에서 사용자의 입력에 따라 실시간으로 피드백(초록불/빨간불)을 주는 기능을 구현하면서 프론트엔드 개발의 재미를 느꼈습니다. Git 충돌을 해결하며 협업의 중요성도 깊이 배울 수 있었습니다.
