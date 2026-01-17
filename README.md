@@ -60,7 +60,7 @@ HODU(호두)는 사용자가 다양한 상품을 쉽고 빠르게 탐색하고, 
 - **Collaboration:** Notion, Discord
 
 ### 2.2 배포 URL
-- **Service URL:** https://second-project2.github.io/Open-Market-Service-OMS-/
+- **Service URL:** [https://second-project2.github.io/Open-Market-Service-OMS-/](https://second-project2.github.io/Open-Market-Service-OMS-/)
 - **Test Account:**
   ```text
   ID : qwer1  
