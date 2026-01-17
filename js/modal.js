@@ -44,4 +44,11 @@ export function setupModalEvents() {
             if (e.target === modalBackdrop) closeLoginModal();
         };
     }
+
+    window.addEventListener('keydown', (e) => {
+        // 눌린 키의 이름이 'Escape'인지 확인합니다.
+        if (e.key === 'Escape') {
+            closeLoginModal(); // 이미 만들어진 닫기 함수를 호출하여 중복을 피합니다.
+        }
+    });
 }

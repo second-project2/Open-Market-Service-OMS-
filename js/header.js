@@ -30,20 +30,37 @@ function updateNavigation() {
 
     if (!userAccountBtn) return; 
 
-    // 
-    // 2. 장바구니 클릭 로직 (로그인 체크)
-    // 
     if (cartBtn) {
-        cartBtn.onclick = (e) => {
-            if (!loginToken) {
-                e.preventDefault(); 
-                openLoginModal();   
-            } else {
-                location.href = 'cart.html'; 
+    const cartIcon = cartBtn.querySelector('img');
+    const originalSrc = "../assets/icons/icon-shopping-cart.svg";
+    const activeSrc = "../assets/icons/icon-shopping-cart-2.svg";
+
+    cartBtn.onmouseenter = () => {
+        if (loginToken && cartIcon) {
+            cartIcon.src = activeSrc;
+        }
+    };
+
+    cartBtn.onmouseleave = () => {
+        if (cartIcon) {
+            cartIcon.src = originalSrc; 
+        }
+    };
+
+    cartBtn.onclick = (e) => {
+        if (!loginToken) {
+            e.preventDefault(); 
+            openLoginModal(); 
+        } else {
+            if (cartIcon) {
+                cartIcon.src = "../assets/icons/icon-shopping-cart-2.svg"; 
             }
-        };
-    }
-   if (loginToken) {
+            location.href = 'cart.html'; 
+        }
+};
+}
+
+    if (loginToken) {
         userText.innerText = "마이페이지";
         userAccountBtn.onclick = (e) => {
             e.stopPropagation(); 
@@ -56,7 +73,7 @@ function updateNavigation() {
                 if (confirm("로그아웃 하시겠습니까?")) {
                     localStorage.clear(); 
                     location.href = 'index.html'; 
-                } // ✅ 빠졌던 중괄호 추가
+                } 
             };
         }
     } else {
