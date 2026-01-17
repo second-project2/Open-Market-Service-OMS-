@@ -17,27 +17,27 @@
 ### 1.3 팀 구성
 <table>
     <tr>
-        <th>팀장 OOO</th>
+        <th>팀장 전준성</th>
         <th>팀원 강지연</th>
         <th>팀원 OOO</th>
         <th>팀원 OOO</th>
     </tr>
     <tr>
-        <td align="center"><img src="https://via.placeholder.com/100" width="100%"></td>
+        <td align="center"><img src="https://github.com/user-attachments/assets/e1503812-210d-4009-abb0-0d2dc9751648" width="150px" style="object-fit: cover;"></td>
         <td align="center">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8Br-BZrPih1vBxXY3CYfqiZ0SksqzH261o9Jw0OfN5iu2GWTowzCbZA-sTqzxaCaoy33U5p8XpiZ2T40pIXF8SqaDfgHlj8XSjr6kBQ&s=10" width="150px" />
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8Br-BZrPih1vBxXY3CYfqiZ0SksqzH261o9Jw0OfN5iu2GWTowzCbZA-sTqzxaCaoy33U5p8XpiZ2T40pIXF8SqaDfgHlj8XSjr6kBQ&s=10" width="150px" style="object-fit: cover;" />
 </td>
         <td align="center"><img src="https://via.placeholder.com/100" width="100%"></td>
       <td align="center"><img src="https://via.placeholder.com/100" width="100%"></td>
     </tr>
     <tr>
-        <td align="center"><b>총괄 / 메인 페이지</b></td>
+        <td align="center"><b>총괄 / 실시간 회원가입 로직 구현</b></td>
         <td align="center"><b>로그인/error페이지</b></td>
         <td align="center"><b>상품 상세 / 장바구니</b></td>
       <td align="center"><b>상품 상세 / 장바구니</b></td>
     </tr>
     <tr>
-        <td align="center"><a href="https://github.com/팀장아이디">@팀장아이디</a></td>
+        <td align="center"><a href="https://github.com/junsung-jeon">@junsung-jeon</a></td>
         <td align="center"><a href="https://github.com/본인아이디">@본인아이디</a></td>
         <td align="center"><a href="https://github.com/팀원아이디">@팀원아이디</a></td>
       <td align="center"><a href="https://github.com/팀원아이디">@팀원아이디</a></td>
@@ -56,11 +56,11 @@
 - **Collaboration:** Notion, Discord
 
 ### 2.2 배포 URL
-- **Service URL:** [https://본인아이디.github.io/레포지토리명](https://본인아이디.github.io/레포지토리명)
+- **Service URL:** https://second-project2.github.io/Open-Market-Service-OMS-/
 - **Test Account:**
   ```text
-  ID : buyer123 (구매자) / seller123 (판매자)
-  PW : hodu1234!
+  ID : qwer1  
+  PW : qwerqwer1!
 ### 2.3 프로젝트 구조
 GitHub Actions 배포 설정에 따라 html 폴더를 루트(root)로 하여 배포됩니다.
 ```
